@@ -126,9 +126,12 @@ export const authService = {
   },
 
   async forgotPassword(email: string): Promise<void> {
-    await api.post('/api/auth/forgot', { email });
-  },
-
+  await api.post('/api/password/forgot', email, {
+    headers: {
+      'Content-Type': 'text/plain'
+    }
+  });
+},
   async resetPassword(data: { token: string; newPassword: string }): Promise<{ message: string }> {
     const response = await api.post<ApiResponse<any>>('/api/auth/reset', data);
     return { message: response.data.message };
