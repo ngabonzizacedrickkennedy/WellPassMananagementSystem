@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 import { authService } from '../services/authService';
 import { User, LoginRequest, RegisterRequest } from '../types/auth';
 
@@ -33,29 +34,75 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (credentials: LoginRequest) => {
-    try {
-      const response = await authService.login(credentials);
-      setUser(response.user);
-      router.push('/dashboard');
-    } catch (error) {
-      throw error;
-    }
+    const loginPromise = authService.login(credentials);
+    
+    toast.promise(
+      loginPromise,
+      {
+        loading: 'Signing in...',
+        success: (response) => {
+          setUser(response.user);
+          setTimeout(() => router.push('/dashboard'), 500);
+          return `Welcome back, ${response.user.fullName}!`;
+        },
+        error: (err) => {
+          return err.response?.data?.message || 'Invalid email or password';
+        },
+      },
+      {
+        success: {
+          duration: 3000,
+          icon: '✅',
+        },
+        error: {
+          duration: 4000,
+          icon: '❌',
+        },
+      }
+    );
+
+    await loginPromise;
   };
 
   const register = async (data: RegisterRequest) => {
-    try {
-      const response = await authService.register(data);
-      setUser(response.user);
-      router.push('/login');
-    } catch (error) {
-      throw error;
-    }
+    const registerPromise = authService.register(data);
+    
+    toast.promise(
+      registerPromise,
+      {
+        loading: 'Creating your account...',
+        success: (response) => {
+          setUser(response.user);
+          setTimeout(() => router.push('/login'), 500);
+          return 'Account created successfully! Please login.';
+        },
+        error: (err) => {
+          return err.response?.data?.message || 'Registration failed. Please try again.';
+        },
+      },
+      {
+        success: {
+          duration: 3000,
+          icon: '🎉',
+        },
+        error: {
+          duration: 4000,
+          icon: '❌',
+        },
+      }
+    );
+
+    await registerPromise;
   };
 
   const logout = async () => {
     try {
       await authService.logout();
       setUser(null);
+      toast.success('Logged out successfully', {
+        icon: '👋',
+        duration: 2000,
+      });
       router.push('/login');
     } catch (error) {
       setUser(null);
