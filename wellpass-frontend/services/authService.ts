@@ -49,9 +49,11 @@ export const authService = {
         accessToken: authData.accessToken,
         refreshToken: authData.refreshToken,
       };
-    } catch (error) {
-      console.error('Login failed:', error);
-      throw error;
+    } catch (error: any) {
+      if (error.response?.status === 401) {
+        throw new Error('Invalid email or password');
+      }
+      throw new Error(error.response?.data?.message || 'Login failed');
     }
   },
 
@@ -86,9 +88,14 @@ export const authService = {
         accessToken: authData.accessToken,
         refreshToken: authData.refreshToken,
       };
-    } catch (error) {
-      console.error('Registration failed:', error);
-      throw error;
+    } catch (error: any) {
+      if (error.response?.status === 409) {
+        throw new Error('Email already exists. Please use a different email or login.');
+      }
+      if (error.response?.status === 400) {
+        throw new Error(error.response?.data?.message || 'Invalid registration data');
+      }
+      throw new Error(error.response?.data?.message || 'Registration failed');
     }
   },
 
@@ -125,16 +132,32 @@ export const authService = {
     };
   },
 
- async forgotPassword(email: string): Promise<void> {
-  await api.post('/api/password/forgot', { email });
-},
+  async forgotPassword(email: string): Promise<void> {
+    try {
+      await api.post('/api/password/forgot', { email });
+    } catch (error: any) {
+      if (error.response?.status === 404) {
+        throw new Error('Email not found. Please check and try again.');
+      }
+      throw new Error(error.response?.data?.message || 'Failed to send reset email');
+    }
+  },
+
   async resetPassword(data: { token: string; newPassword: string }): Promise<{ message: string }> {
-  const response = await api.post<ApiResponse<any>>('/api/password/reset', {
-    resetToken: data.token,
-    newPassword: data.newPassword
-  });
-  return { message: response.data.message };
-},
+    try {
+      const response = await api.post<ApiResponse<any>>('/api/password/reset', {
+        resetToken: data.token,
+        newPassword: data.newPassword
+      });
+      return { message: response.data.message };
+    } catch (error: any) {
+      if (error.response?.status === 400) {
+        throw new Error('Invalid or expired reset token');
+      }
+      throw new Error(error.response?.data?.message || 'Failed to reset password');
+    }
+  },
+
   isAuthenticated(): boolean {
     const token = localStorage.getItem('accessToken');
     return !!token;
