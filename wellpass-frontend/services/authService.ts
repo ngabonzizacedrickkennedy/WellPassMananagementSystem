@@ -125,18 +125,16 @@ export const authService = {
     };
   },
 
-  async forgotPassword(email: string): Promise<void> {
-  await api.post('/api/password/forgot', email, {
-    headers: {
-      'Content-Type': 'text/plain'
-    }
-  });
+ async forgotPassword(email: string): Promise<void> {
+  await api.post('/api/password/forgot', { email });
 },
   async resetPassword(data: { token: string; newPassword: string }): Promise<{ message: string }> {
-    const response = await api.post<ApiResponse<any>>('/api/auth/reset', data);
-    return { message: response.data.message };
-  },
-
+  const response = await api.post<ApiResponse<any>>('/api/password/reset', {
+    resetToken: data.token,
+    newPassword: data.newPassword
+  });
+  return { message: response.data.message };
+},
   isAuthenticated(): boolean {
     const token = localStorage.getItem('accessToken');
     return !!token;
