@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User extends AuditableEntity {
 
+
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
