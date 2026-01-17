@@ -1,11 +1,9 @@
 export interface User {
   id: number;
   email: string;
-  firstName: string;
-  lastName: string;
+  fullName: string;
   phoneNumber: string;
   role: UserRole;
-  companyId?: number;
   isEmailVerified: boolean;
   isActive: boolean;
   createdAt: string;
@@ -34,11 +32,9 @@ export interface LoginResponse {
 export interface RegisterRequest {
   email: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  fullName: string;
   phoneNumber: string;
   role: UserRole;
-  companyId?: number;
 }
 
 export interface RegisterResponse {
