@@ -1,212 +1,23 @@
 'use client';
 
 import { useAuth } from '@/context/AuthContext';
-import StatsCard from '@/components/dashboard/StatsCard';
-import RecentActivity from '@/components/dashboard/RecentActivity';
-import QuickActions from '@/components/dashboard/QuickActions';
+import Link from 'next/link';
 import {
   Users,
   Clock,
   ShieldCheck,
   CreditCard,
-  TrendingUp,
   Building2,
   UserPlus,
   FileSpreadsheet,
   UserCheck,
   BarChart3,
+  Stethoscope,
+  DollarSign,
+  Target,
+  Award,
+  TrendingUp,
 } from 'lucide-react';
-
-const superAdminActions = [
-  {
-    label: 'Add Company',
-    icon: Building2,
-    href: '/companies/new',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-  },
-  {
-    label: 'Add Provider',
-    icon: UserPlus,
-    href: '/service-providers/new',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-  },
-  {
-    label: 'View Reports',
-    icon: BarChart3,
-    href: '/reports',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-  },
-  {
-    label: 'Billing Overview',
-    icon: CreditCard,
-    href: '/billing',
-    color: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-  },
-];
-
-const companyAdminActions = [
-  {
-    label: 'Add Employee',
-    icon: UserPlus,
-    href: '/employees/new',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-  },
-  {
-    label: 'Bulk Upload',
-    icon: FileSpreadsheet,
-    href: '/employees/bulk-upload',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-  },
-  {
-    label: 'View Reports',
-    icon: BarChart3,
-    href: '/reports',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-  },
-  {
-    label: 'Billing',
-    icon: CreditCard,
-    href: '/billing',
-    color: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-  },
-];
-
-const hrManagerActions = [
-  {
-    label: 'Add Employee',
-    icon: UserPlus,
-    href: '/employees/new',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-  },
-  {
-    label: 'Bulk Upload',
-    icon: FileSpreadsheet,
-    href: '/employees/bulk-upload',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-  },
-  {
-    label: 'Attendance',
-    icon: Clock,
-    href: '/attendance',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-  },
-  {
-    label: 'Reports',
-    icon: BarChart3,
-    href: '/reports',
-    color: 'text-indigo-600',
-    bgColor: 'bg-indigo-50',
-  },
-];
-
-const receptionistActions = [
-  {
-    label: 'Verify Admission',
-    icon: ShieldCheck,
-    href: '/admissions/verify',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-  },
-  {
-    label: 'Check-In',
-    icon: UserCheck,
-    href: '/attendance/check-in',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-  },
-  {
-    label: 'View Employees',
-    icon: Users,
-    href: '/employees',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-  },
-  {
-    label: 'Admission History',
-    icon: Clock,
-    href: '/admissions/history',
-    color: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-  },
-];
-
-const serviceProviderActions = [
-  {
-    label: 'View Admissions',
-    icon: ShieldCheck,
-    href: '/admissions',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-  },
-  {
-    label: 'Facility Stats',
-    icon: BarChart3,
-    href: '/reports',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-  },
-  {
-    label: 'Settings',
-    icon: Building2,
-    href: '/settings',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-  },
-];
-
-const sampleActivities = [
-  {
-    id: 1,
-    type: 'employee' as const,
-    user: 'John Doe',
-    action: 'New employee registered',
-    timestamp: new Date().toISOString(),
-    details: 'Added to Marketing Department',
-  },
-  {
-    id: 2,
-    type: 'admission' as const,
-    user: 'Jane Smith',
-    action: 'Admission verified',
-    timestamp: new Date(Date.now() - 900000).toISOString(),
-    details: 'Checked in at FitLife Gym',
-  },
-  {
-    id: 3,
-    type: 'attendance' as const,
-    user: 'Mike Johnson',
-    action: 'Attendance recorded',
-    timestamp: new Date(Date.now() - 1800000).toISOString(),
-    details: 'Swimming Pool - Premium',
-  },
-  {
-    id: 4,
-    type: 'billing' as const,
-    user: 'System',
-    action: 'Invoice generated',
-    timestamp: new Date(Date.now() - 3600000).toISOString(),
-    details: 'December monthly invoice',
-  },
-  {
-    id: 5,
-    type: 'employee' as const,
-    user: 'Sarah Williams',
-    action: 'Employee updated',
-    timestamp: new Date(Date.now() - 7200000).toISOString(),
-    details: 'Position changed to Senior Manager',
-  },
-];
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -214,251 +25,286 @@ export default function DashboardPage() {
   const getQuickActions = () => {
     switch (user?.role) {
       case 'SUPER_ADMIN':
-        return superAdminActions;
+        return [
+          { title: 'Add Company', description: 'Create new company', icon: Building2, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', href: '/companies/new' },
+          { title: 'Add Provider', description: 'Register service provider', icon: Stethoscope, iconBg: 'bg-green-100', iconColor: 'text-green-600', href: '/service-providers/new' },
+          { title: 'View Reports', description: 'Analytics and insights', icon: BarChart3, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', href: '/reports' },
+          { title: 'Billing Overview', description: 'Financial dashboard', icon: CreditCard, iconBg: 'bg-amber-100', iconColor: 'text-amber-600', href: '/billing' },
+        ];
       case 'COMPANY_ADMIN':
-        return companyAdminActions;
+        return [
+          { title: 'Add Employee', description: 'Register new employee', icon: UserPlus, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', href: '/employees/new' },
+          { title: 'Bulk Upload', description: 'Import employee data', icon: FileSpreadsheet, iconBg: 'bg-green-100', iconColor: 'text-green-600', href: '/employees/bulk-upload' },
+          { title: 'View Reports', description: 'Analytics dashboard', icon: BarChart3, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', href: '/reports' },
+          { title: 'Billing', description: 'View invoices', icon: CreditCard, iconBg: 'bg-amber-100', iconColor: 'text-amber-600', href: '/billing' },
+        ];
       case 'HR_MANAGER':
-        return hrManagerActions;
+        return [
+          { title: 'Add Employee', description: 'Register new employee', icon: UserPlus, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', href: '/employees/new' },
+          { title: 'Bulk Upload', description: 'Import employee data', icon: FileSpreadsheet, iconBg: 'bg-green-100', iconColor: 'text-green-600', href: '/employees/bulk-upload' },
+          { title: 'Attendance', description: 'Track attendance', icon: Clock, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', href: '/attendance' },
+          { title: 'Reports', description: 'View analytics', icon: BarChart3, iconBg: 'bg-indigo-100', iconColor: 'text-indigo-600', href: '/reports' },
+        ];
       case 'RECEPTIONIST':
-        return receptionistActions;
+        return [
+          { title: 'Verify Admission', description: 'Check employee access', icon: ShieldCheck, iconBg: 'bg-green-100', iconColor: 'text-green-600', href: '/admissions/verify' },
+          { title: 'Check-In', description: 'Record attendance', icon: UserCheck, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', href: '/attendance/check-in' },
+          { title: 'View Employees', description: 'Browse employee list', icon: Users, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', href: '/employees' },
+          { title: 'Admission History', description: 'View past records', icon: Clock, iconBg: 'bg-amber-100', iconColor: 'text-amber-600', href: '/admissions/history' },
+        ];
       case 'SERVICE_PROVIDER_ADMIN':
-        return serviceProviderActions;
+        return [
+          { title: 'View Admissions', description: "Check today's visits", icon: ShieldCheck, iconBg: 'bg-green-100', iconColor: 'text-green-600', href: '/admissions' },
+          { title: 'Facility Stats', description: 'Usage analytics', icon: BarChart3, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', href: '/reports' },
+          { title: 'Settings', description: 'Manage preferences', icon: Building2, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', href: '/settings' },
+        ];
       default:
         return [];
     }
   };
 
-  const renderSuperAdminDashboard = () => (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <StatsCard
-          title="Total Companies"
-          value="24"
-          icon={Building2}
-          trend={{ value: 12, isPositive: true }}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          description="Active companies"
-        />
-        <StatsCard
-          title="Total Employees"
-          value="1,248"
-          icon={Users}
-          trend={{ value: 8, isPositive: true }}
-          iconColor="text-green-600"
-          iconBgColor="bg-green-100"
-          description="Across all companies"
-        />
-        <StatsCard
-          title="Service Providers"
-          value="12"
-          icon={Building2}
-          trend={{ value: 5, isPositive: true }}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-          description="Active providers"
-        />
-        <StatsCard
-          title="Monthly Revenue"
-          value="$48,250"
-          icon={TrendingUp}
-          trend={{ value: 15, isPositive: true }}
-          iconColor="text-amber-600"
-          iconBgColor="bg-amber-100"
-          description="This month"
-        />
-      </div>
-    </>
-  );
+  const recentActivities = [
+    { user: 'John Doe', action: 'New employee registered', time: 'Just now', type: 'employee' as const },
+    { user: 'Jane Smith', action: 'Admission verified', time: '15m ago', type: 'admission' as const },
+    { user: 'Mike Johnson', action: 'Attendance recorded', time: '30m ago', type: 'attendance' as const },
+    { user: 'System', action: 'Invoice generated', time: '1h ago', type: 'billing' as const },
+    { user: 'Sarah Williams', action: 'Employee updated', time: '2h ago', type: 'employee' as const },
+  ];
 
-  const renderCompanyAdminDashboard = () => (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <StatsCard
-          title="Total Employees"
-          value="156"
-          icon={Users}
-          trend={{ value: 12, isPositive: true }}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          description="In your company"
-        />
-        <StatsCard
-          title="Active Today"
-          value="89"
-          icon={UserCheck}
-          trend={{ value: 5, isPositive: true }}
-          iconColor="text-green-600"
-          iconBgColor="bg-green-100"
-          description="Checked in"
-        />
-        <StatsCard
-          title="This Month"
-          value="2,341"
-          icon={Clock}
-          trend={{ value: 8, isPositive: true }}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-          description="Total check-ins"
-        />
-        <StatsCard
-          title="Monthly Cost"
-          value="$12,450"
-          icon={CreditCard}
-          trend={{ value: 3, isPositive: false }}
-          iconColor="text-amber-600"
-          iconBgColor="bg-amber-100"
-          description="This month"
-        />
-      </div>
-    </>
-  );
-
-  const renderHRManagerDashboard = () => (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <StatsCard
-          title="Total Employees"
-          value="156"
-          icon={Users}
-          trend={{ value: 12, isPositive: true }}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          description="In your company"
-        />
-        <StatsCard
-          title="Active Today"
-          value="89"
-          icon={UserCheck}
-          iconColor="text-green-600"
-          iconBgColor="bg-green-100"
-          description="Checked in"
-        />
-        <StatsCard
-          title="This Month"
-          value="2,341"
-          icon={Clock}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-          description="Total attendance"
-        />
-        <StatsCard
-          title="Departments"
-          value="8"
-          icon={Building2}
-          iconColor="text-indigo-600"
-          iconBgColor="bg-indigo-100"
-          description="Active departments"
-        />
-      </div>
-    </>
-  );
-
-  const renderReceptionistDashboard = () => (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <StatsCard
-          title="Today's Check-ins"
-          value="89"
-          icon={UserCheck}
-          iconColor="text-green-600"
-          iconBgColor="bg-green-100"
-          description="So far today"
-        />
-        <StatsCard
-          title="Verified"
-          value="85"
-          icon={ShieldCheck}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          description="Admissions verified"
-        />
-        <StatsCard
-          title="Pending"
-          value="4"
-          icon={Clock}
-          iconColor="text-amber-600"
-          iconBgColor="bg-amber-100"
-          description="Awaiting verification"
-        />
-        <StatsCard
-          title="Active Employees"
-          value="156"
-          icon={Users}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-          description="Total employees"
-        />
-      </div>
-    </>
-  );
-
-  const renderServiceProviderDashboard = () => (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <StatsCard
-          title="Today's Admissions"
-          value="124"
-          icon={ShieldCheck}
-          trend={{ value: 15, isPositive: true }}
-          iconColor="text-green-600"
-          iconBgColor="bg-green-100"
-          description="Verified admissions"
-        />
-        <StatsCard
-          title="Facility Usage"
-          value="78%"
-          icon={TrendingUp}
-          trend={{ value: 5, isPositive: true }}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          description="Current capacity"
-        />
-        <StatsCard
-          title="This Month"
-          value="3,542"
-          icon={Clock}
-          trend={{ value: 12, isPositive: true }}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-          description="Total admissions"
-        />
-        <StatsCard
-          title="Revenue"
-          value="$28,650"
-          icon={CreditCard}
-          trend={{ value: 8, isPositive: true }}
-          iconColor="text-amber-600"
-          iconBgColor="bg-amber-100"
-          description="This month"
-        />
-      </div>
-    </>
-  );
+  const activityColors = {
+    employee: { bg: 'bg-blue-100', text: 'text-blue-700' },
+    admission: { bg: 'bg-green-100', text: 'text-green-700' },
+    attendance: { bg: 'bg-purple-100', text: 'text-purple-700' },
+    billing: { bg: 'bg-amber-100', text: 'text-amber-700' },
+  };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 max-w-7xl mx-auto">
+      {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+        <h1 className="text-3xl font-bold text-slate-900">
           Welcome back, {user?.fullName}!
         </h1>
-        <p className="text-slate-600 mt-2">
-          Here's what's happening with your system today.
+        <p className="text-slate-600 mt-1">
+          Here&apos;s what&apos;s happening with your system today.
         </p>
       </div>
 
-      {user?.role === 'SUPER_ADMIN' && renderSuperAdminDashboard()}
-      {user?.role === 'COMPANY_ADMIN' && renderCompanyAdminDashboard()}
-      {user?.role === 'HR_MANAGER' && renderHRManagerDashboard()}
-      {user?.role === 'RECEPTIONIST' && renderReceptionistDashboard()}
-      {user?.role === 'SERVICE_PROVIDER_ADMIN' && renderServiceProviderDashboard()}
+      {/* Stats Cards */}
+      {user?.role === 'HR_MANAGER' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Card 1 */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-blue-100 rounded-lg">
+                <Users className="h-6 w-6 text-blue-600" />
+              </div>
+              <span className="text-sm font-medium text-green-600">+12%</span>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Total Employees</p>
+              <p className="text-3xl font-bold text-slate-900">156</p>
+            </div>
+          </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <RecentActivity activities={sampleActivities} />
+          {/* Card 2 */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-green-100 rounded-lg">
+                <UserCheck className="h-6 w-6 text-green-600" />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Active Today</p>
+              <p className="text-3xl font-bold text-slate-900">89</p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-purple-100 rounded-lg">
+                <Clock className="h-6 w-6 text-purple-600" />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">This Month</p>
+              <p className="text-3xl font-bold text-slate-900">2,341</p>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-indigo-100 rounded-lg">
+                <Building2 className="h-6 w-6 text-indigo-600" />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Departments</p>
+              <p className="text-3xl font-bold text-slate-900">8</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <QuickActions actions={getQuickActions()} />
+      )}
+
+      {user?.role === 'COMPANY_ADMIN' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-blue-100 rounded-lg">
+                <Users className="h-6 w-6 text-blue-600" />
+              </div>
+              <span className="text-sm font-medium text-green-600">+12%</span>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Total Employees</p>
+              <p className="text-3xl font-bold text-slate-900">156</p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-green-100 rounded-lg">
+                <UserCheck className="h-6 w-6 text-green-600" />
+              </div>
+              <span className="text-sm font-medium text-green-600">+5%</span>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Active Today</p>
+              <p className="text-3xl font-bold text-slate-900">89</p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-purple-100 rounded-lg">
+                <Clock className="h-6 w-6 text-purple-600" />
+              </div>
+              <span className="text-sm font-medium text-green-600">+8%</span>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">This Month</p>
+              <p className="text-3xl font-bold text-slate-900">2,341</p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="p-3 bg-amber-100 rounded-lg">
+                <DollarSign className="h-6 w-6 text-amber-600" />
+              </div>
+              <span className="text-sm font-medium text-red-600">-3%</span>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Monthly Cost</p>
+              <p className="text-3xl font-bold text-slate-900">$12,450</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quick Actions */}
+      <div>
+        <h2 className="text-xl font-bold text-slate-900 mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {getQuickActions().map((action, index) => {
+            const Icon = action.icon;
+            return (
+              <Link key={index} href={action.href}>
+                <div className="bg-white rounded-lg border border-slate-200 hover:shadow-md transition-shadow cursor-pointer">
+                  <div className="p-6 flex items-center space-x-4">
+                    <div className={`p-3 ${action.iconBg} rounded-lg`}>
+                      <Icon className={`h-6 w-6 ${action.iconColor}`} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900">{action.title}</h3>
+                      <p className="text-sm text-slate-600">{action.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Recent Activity and Goals */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Recent Activity */}
+        <div className="lg:col-span-2">
+          <div className="bg-white rounded-lg border border-slate-200">
+            <div className="px-6 py-4 border-b border-slate-200">
+              <h2 className="text-lg font-bold text-slate-900">Recent Activity</h2>
+            </div>
+            <div className="p-6">
+              {recentActivities.map((activity, index) => (
+                <div key={index} className="flex items-start gap-4 py-3 border-b border-slate-100 last:border-0">
+                  <div className={`w-10 h-10 ${activityColors[activity.type].bg} rounded-full flex items-center justify-center ${activityColors[activity.type].text} font-semibold`}>
+                    {activity.user.charAt(0)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-slate-900">{activity.user}</p>
+                    <p className="text-sm text-slate-600">{activity.action}</p>
+                    <p className="text-xs text-slate-400 mt-1">{activity.time}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Goals Sidebar */}
+        <div className="space-y-6">
+          {/* Today's Goal */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Target className="h-5 w-5 text-blue-600" />
+              <h3 className="font-bold text-slate-900">Today&apos;s Goal</h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span className="text-slate-600">Check-ins</span>
+                  <span className="font-medium">89/100</span>
+                </div>
+                <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="bg-blue-600 h-2 rounded-full" style={{ width: '89%' }}></div>
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span className="text-slate-600">Verifications</span>
+                  <span className="font-medium">85/90</span>
+                </div>
+                <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="bg-green-600 h-2 rounded-full" style={{ width: '94%' }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* This Week */}
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Award className="h-5 w-5 text-amber-600" />
+              <h3 className="font-bold text-slate-900">This Week</h3>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600">Total Check-ins</span>
+                <span className="font-semibold text-slate-900">456</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600">Avg. Daily</span>
+                <span className="font-semibold text-slate-900">65</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600">Peak Time</span>
+                <span className="font-semibold text-slate-900">9:00 AM</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
