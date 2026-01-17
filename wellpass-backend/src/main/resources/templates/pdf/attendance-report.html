@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        .report-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 0;
+        }
+        .report-subtitle {
+            font-size: 16px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        .summary-boxes {
+            display: table;
+            width: 100%;
+            margin: 30px 0;
+        }
+        .summary-box {
+            display: table-cell;
+            width: 25%;
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 0 10px;
+        }
+        .summary-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .summary-label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #667eea;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 class="report-title">📊 ATTENDANCE REPORT</h1>
+    <p class="report-subtitle">{{companyName}} - {{reportPeriod}}</p>
+    <p style="font-size: 14px; color: #6c757d;">Generated on {{generatedDate}}</p>
+</div>
+
+<div class="summary-boxes">
+    <div class="summary-box">
+        <div class="summary-number">{{totalVisits}}</div>
+        <div class="summary-label">Total Visits</div>
+    </div>
+    <div class="summary-box">
+        <div class="summary-number">{{uniqueEmployees}}</div>
+        <div class="summary-label">Unique Employees</div>
+    </div>
+    <div class="summary-box">
+        <div class="summary-number">${{totalRevenue}}</div>
+        <div class="summary-label">Total Revenue</div>
+    </div>
+    <div class="summary-box">
+        <div class="summary-number">{{averageVisits}}</div>
+        <div class="summary-label">Avg Visits/Employee</div>
+    </div>
+</div>
+
+<h3 style="color: #667eea; margin-top: 40px;">Detailed Attendance Records</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Service</th>
+        <th>Provider</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th style="text-align: right;">Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#attendanceRecords}}
+    <tr>
+        <td>{{date}}</td>
+        <td>{{employeeId}}</td>
+        <td>{{employeeName}}</td>
+        <td>{{department}}</td>
+        <td>{{serviceName}}</td>
+        <td>{{providerName}}</td>
+        <td>{{checkInTime}}</td>
+        <td>{{checkOutTime}}</td>
+        <td style="text-align: right;">${{cost}}</td>
+    </tr>
+    {{/attendanceRecords}}
+    </tbody>
+</table>
+
+<div style="margin-top: 40px;">
+    <h3 style="color: #667eea;">Department Breakdown</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Department</th>
+            <th style="text-align: center;">Visits</th>
+            <th style="text-align: right;">Total Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#departmentBreakdown}}
+        <tr>
+            <td>{{departmentName}}</td>
+            <td style="text-align: center;">{{visits}}</td>
+            <td style="text-align: right;">${{cost}}</td>
+        </tr>
+        {{/departmentBreakdown}}
+        </tbody>
+    </table>
+</div>
+
+<div class="footer">
+    <p>
+        <strong>WellPass Management System</strong><br>
+        Corporate Wellness & Fitness Access Platform<br>
+        This is a computer-generated report. No signature required.
+    </p>
+</div>
+</body>
+</html>

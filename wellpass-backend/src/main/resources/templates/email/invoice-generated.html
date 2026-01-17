@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .invoice-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .invoice-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .invoice-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #3b82f6;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #3b82f6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>📄 New Invoice Generated</h1>
+    </div>
+    <div class="content">
+        <p>Dear <strong>{{companyName}}</strong> Team,</p>
+        <p>Your monthly invoice has been generated and is now available for review.</p>
+
+        <div class="invoice-box">
+            <h3 style="margin-top: 0;">Invoice Summary</h3>
+            <div class="invoice-row">
+                <span>Invoice Number:</span>
+                <span><strong>{{invoiceNumber}}</strong></span>
+            </div>
+            <div class="invoice-row">
+                <span>Billing Period:</span>
+                <span>{{month}}/{{year}}</span>
+            </div>
+            <div class="invoice-row">
+                <span>Issue Date:</span>
+                <span>{{issueDate}}</span>
+            </div>
+            <div class="invoice-row">
+                <span>Due Date:</span>
+                <span>{{dueDate}}</span>
+            </div>
+            <div class="invoice-row">
+                <span>Total Amount:</span>
+                <span>${{totalAmount}}</span>
+            </div>
+        </div>
+
+        <center>
+            <a href="{{invoiceUrl}}" class="button">View Invoice</a>
+        </center>
+
+        <p>Please ensure payment is made by the due date to avoid any service interruptions.</p>
+        <p>If you have any questions regarding this invoice, please contact our billing department.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 WellPass Management System. All rights reserved.</p>
+        <p>Billing inquiries: billing@wellpass.com</p>
+    </div>
+</div>
+</body>
+</html>

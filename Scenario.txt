@@ -1,0 +1,1650 @@
+Corporate Sports & Wellness Access System - UPDATED Scenario 1 (Point Collection Enhanced)
+Scenario 1: Standard Employee Gym Visit with Point Collection
+Characters:
+
+John Doe - Marketing Manager at TechCorp
+Sarah - Gym receptionist at FitLife Wellness Center
+Lisa - HR Manager at TechCorp
+
+
+THE COMPLETE FLOW:
+PART 1: Employee Gets Access with Point Collection (9:00 AM)
+John arrives at FitLife Wellness Center
+John approaches the reception desk:
+
+"Hi, I'm from TechCorp. I'd like to use the gym."
+
+Sarah opens the Service Provider Dashboard:
+
+Clicks on "Admit Staff"
+Simple form with only 2 fields appears:
+
+═══════════════════════════════════════════════════════
+ADMIT EMPLOYEE - Point Collection
+FitLife Wellness Center
+═══════════════════════════════════════════════════════
+
+Employee ID:     [_________________]
+Service:         [▼ Select Service ]
+                  - Gym Access ($10/visit)
+                  - Swimming ($15/visit)
+                  - Yoga ($12/visit)
+                  - Personal Training ($25/visit)
+
+                            [Admit]
+Sarah asks: "What's your Employee ID?"
+John: "It's TC-2847"
+Sarah enters the ID and selects service:
+Employee ID:     [TC-2847        ]
+Service:         [Gym Access ($10/visit)]
+
+                            [Admit]
+Sarah clicks the "Admit" button
+
+🎯 SYSTEM RETRIEVES EMPLOYEE DETAILS (Takes 1 second)
+Sarah's screen transforms to show:
+═══════════════════════════════════════════════════════
+EMPLOYEE VERIFICATION - Point Collection
+═══════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────┐
+│  📸                                                  │
+│  [Profile Picture]     EMPLOYEE DETAILS             │
+│   John Doe                                          │
+│                        Name: John Doe                │
+│                        Employee ID: TC-2847          │
+│                        Company: TechCorp             │
+│                        Department: Marketing         │
+│                        Phone: +250-788-123-456       │
+│                                                      │
+│                        Service Selected: Gym Access  │
+│                        Price: $10                    │
+└─────────────────────────────────────────────────────┘
+
+                    [Send OTP]  [Cancel]
+Sarah verifies the person in front of her matches the profile:
+
+Looks at John
+Looks at the profile picture on screen
+Confirms it's the same person
+
+Sarah clicks "Send OTP" button
+
+SYSTEM PROCESSES (Background):
+
+Generates OTP: 691243
+Sends SMS to +250-788-123-456
+
+John's phone receives SMS:
+FitLife Wellness Access
+
+Your verification code: 691243
+Valid for 3 minutes only.
+
+Do not share this code.
+Sarah's screen updates to show OTP input:
+═══════════════════════════════════════════════════════
+EMPLOYEE VERIFICATION - OTP Entry
+═══════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────┐
+│  📸                                                  │
+│  [Profile Picture]     EMPLOYEE DETAILS             │
+│   John Doe                                          │
+│                        Name: John Doe                │
+│                        Employee ID: TC-2847          │
+│                        Company: TechCorp             │
+│                        Department: Marketing         │
+│                        Phone: +250-788-***-456       │
+│                                                      │
+│                        Service: Gym Access ($10)     │
+└─────────────────────────────────────────────────────┘
+
+✓ OTP sent to employee's phone
+Waiting for employee to provide OTP...
+
+Enter OTP Code:  [______]
+
+                    [Verify & Admit]  [Resend OTP]  [Cancel]
+
+John reads the code from his phone:
+John: "The code is 6-9-1-2-4-3"
+Sarah enters the OTP:
+Enter OTP Code:  [691243]
+
+                    [Verify & Admit]
+Sarah clicks "Verify & Admit"
+
+SYSTEM VALIDATES (Takes 1-2 seconds):
+
+✅ OTP matches
+✅ Not expired (sent 45 seconds ago)
+✅ Not already used
+
+Attendance is AUTOMATICALLY logged in the background:
+Attendance Record Created:
+- Employee: John Doe (TC-2847)
+- Company: TechCorp
+- Department: Marketing
+- Service: Gym Access
+- Price: $10
+- Timestamp: 9:03 AM, Oct 15, 2024
+- Provider: FitLife Wellness Center
+- Status: Confirmed
+
+SUCCESS! Sarah's screen shows:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+
+Employee: John Doe (TC-2847)
+Company: TechCorp
+Department: Marketing
+Service: Gym Access
+Amount: $10
+Time: 9:03 AM
+
+Access successfully recorded!
+
+                    [Admit Another Employee]
+
+───────────────────────────────────────────────────────
+TODAY'S COLLECTION SUMMARY
+───────────────────────────────────────────────────────
+Total Employees Admitted: 1
+Total Revenue Today: $10.00
+───────────────────────────────────────────────────────
+John receives SUCCESS SMS:
+FitLife Wellness
+
+✓ Access Confirmed!
+
+Service: Gym Access
+Time: 9:03 AM
+Location: FitLife Downtown
+
+Enjoy your workout!
+John goes to enjoy his gym session
+✅ No app needed
+✅ No login required
+✅ Just shows up, provides ID, gets verified with photo, confirms OTP, done!
+
+PART 2: Sarah Admits More Employees Throughout the Day
+9:22 AM - Linda Park arrives
+Sarah repeats the process:
+
+Enters: TC-3394 + Gym Access
+Clicks [Admit]
+Sees Linda's profile with photo
+Verifies it's her
+Clicks [Send OTP]
+Linda provides OTP
+Sarah clicks [Verify & Admit]
+
+Screen shows:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+
+Employee: Linda Park (TC-3394)
+Company: TechCorp
+Department: Sales
+Service: Gym Access
+Amount: $10
+Time: 9:22 AM
+
+                    [Admit Another Employee]
+
+───────────────────────────────────────────────────────
+TODAY'S COLLECTION SUMMARY (Auto-Updated)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 2
+Total Revenue Today: $20.00
+───────────────────────────────────────────────────────
+
+10:05 AM - Sarah Lee arrives for Yoga
+Sarah enters: TC-4821 + Yoga ($12)
+Same verification flow...
+Success screen:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+
+Employee: Sarah Lee (TC-4821)
+Company: TechCorp
+Department: Engineering
+Service: Yoga
+Amount: $12
+Time: 10:05 AM
+
+                    [Admit Another Employee]
+
+───────────────────────────────────────────────────────
+TODAY'S COLLECTION SUMMARY (Auto-Updated)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 3
+Total Revenue Today: $32.00
+───────────────────────────────────────────────────────
+
+10:15 AM - Mike Chen (TechCorp)
+10:28 AM - Emma Wilson (BizCorp - Different Company)
+10:47 AM - David Brown (MegaInc - Different Company)
+After admitting all these employees...
+
+PART 3: Sarah Checks Detailed Today's Attendance (11:00 AM)
+Sarah clicks "Today's Attendance" on her dashboard navigation:
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+
+📊 TODAY'S COLLECTION SUMMARY
+───────────────────────────────────────────────────────
+Total Employees Admitted: 6
+Total Revenue Today: $72.00
+───────────────────────────────────────────────────────
+
+Recent Admissions (Latest First):
+┌──────────┬────────────────┬──────────────┬──────────┬───────┐
+│ Time     │ Employee       │ Company      │ Service  │ Price │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 10:47 AM │ David Brown    │ MegaInc      │ Gym      │ $10   │
+│          │ (MI-7714)      │              │          │       │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 10:28 AM │ Emma Wilson    │ BizCorp      │ Swimming │ $15   │
+│          │ (BC-4921)      │              │          │       │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 10:15 AM │ Mike Chen      │ TechCorp     │ Gym      │ $10   │
+│          │ (TC-5129)      │              │          │       │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 10:05 AM │ Sarah Lee      │ TechCorp     │ Yoga     │ $12   │
+│          │ (TC-4821)      │              │          │       │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 9:22 AM  │ Linda Park     │ TechCorp     │ Gym      │ $10   │
+│          │ (TC-3394)      │              │          │       │
+├──────────┼────────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM  │ John Doe       │ TechCorp     │ Gym      │ $10   │
+│          │ (TC-2847)      │              │          │       │
+└──────────┴────────────────┴──────────────┴──────────┴───────┘
+
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 4         │ $42.00  │
+│ BizCorp      │ 1         │ $15.00  │
+│ MegaInc      │ 1         │ $10.00  │
+└──────────────┴───────────┴─────────┘
+
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 4         │ $40.00  │
+│ Swimming     │ 1         │ $15.00  │
+│ Yoga         │ 1         │ $12.00  │
+└──────────────┴───────────┴─────────┘
+
+[Auto-refresh every 30 seconds] [Export Today's Report] [Print]
+The dashboard auto-updates every time Sarah admits someone - no manual refresh needed!
+
+PART 4: Lisa (HR) Monitors Company Wellness Usage
+10:45 AM - Lisa checks today's activity
+Lisa logs into TechCorp Company Dashboard and sees:
+VIEW 1: TODAY'S ATTENDANCE (Auto-updating)
+═══════════════════════════════════════════════════════
+TECHCORP - TODAY'S WELLNESS ACTIVITY
+October 15, 2024
+═══════════════════════════════════════════════════════
+
+🔴 Live Updates: ON (refreshes every 30 seconds)
+
+📊 TODAY'S SUMMARY:
+───────────────────────────────────────────────────────
+Total Employees Active Today: 4
+Total Visits Today: 4
+Today's Cost: $42.00
+───────────────────────────────────────────────────────
+
+Recent Activity (Latest First):
+┌──────────┬────────────────┬──────────────┬─────────────────┬───────┐
+│ Time     │ Employee       │ Department   │ Service/Location│ Cost  │
+├──────────┼────────────────┼──────────────┼─────────────────┼───────┤
+│ 10:15 AM │ Mike Chen      │ Engineering  │ Gym - FitLife   │ $10   │
+│          │ (TC-5129)      │              │                 │       │
+├──────────┼────────────────┼──────────────┼─────────────────┼───────┤
+│ 10:05 AM │ Sarah Lee      │ Engineering  │ Yoga - YogaZen  │ $12   │
+│          │ (TC-4821)      │              │                 │       │
+├──────────┼────────────────┼──────────────┼─────────────────┼───────┤
+│ 9:22 AM  │ Linda Park     │ Sales        │ Gym - FitLife   │ $10   │
+│          │ (TC-3394)      │              │                 │       │
+├──────────┼────────────────┼──────────────┼─────────────────┼───────┤
+│ 9:03 AM  │ John Doe       │ Marketing    │ Gym - FitLife   │ $10   │
+│          │ (TC-2847)      │              │                 │       │
+└──────────┴────────────────┴──────────────┴─────────────────┴───────┘
+
+BY DEPARTMENT TODAY:
+┌──────────────┬────────┬─────────┐
+│ Department   │ Visits │ Cost    │
+├──────────────┼────────┼─────────┤
+│ Engineering  │ 2      │ $22.00  │
+│ Marketing    │ 1      │ $10.00  │
+│ Sales        │ 1      │ $10.00  │
+└──────────────┴────────┴─────────┘
+
+[View Yesterday] [View This Week] [Export Today's Data]
+This view auto-updates whenever any TechCorp employee gets admitted at any wellness center!
+
+VIEW 2: MONTHLY ATTENDANCE + INVOICE (October)
+Lisa clicks "Monthly Report" tab:
+═══════════════════════════════════════════════════════
+TECHCORP - OCTOBER 2024 WELLNESS REPORT
+═══════════════════════════════════════════════════════
+
+Report Period: Oct 1 - Oct 31, 2024 (Today is Oct 15)
+Status: Month in Progress
+
+📊 MONTH-TO-DATE SUMMARY:
+───────────────────────────────────────────────────────
+Total Employees Using Services: 28
+Total Visits This Month: 156
+Current Month Cost: $1,840.00
+Projected Month-End Cost: ~$3,680.00
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DEPARTMENT BREAKDOWN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 MARKETING DEPARTMENT
+Total Visits: 38 | Cost: $456.00
+
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ John Doe       │ 12     │ Gym(10), Yoga(2)     │ $144.00 │
+│ (TC-2847)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mary Smith     │ 8      │ Swimming(6), Gym(2)  │ $110.00 │
+│ (TC-3921)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Alex Johnson   │ 6      │ Gym(6)               │ $60.00  │
+│ (TC-4472)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 ENGINEERING DEPARTMENT
+Total Visits: 67 | Cost: $778.00
+
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mike Chen      │ 18     │ Gym(15), Swimming(3) │ $195.00 │
+│ (TC-5129)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Sarah Lee      │ 14     │ Yoga(9), Gym(5)      │ $158.00 │
+│ (TC-4821)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Tom Wilson     │ 11     │ Gym(11)              │ $110.00 │
+│ (TC-6638)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 SALES DEPARTMENT
+Total Visits: 51 | Cost: $606.00
+
+[Show Details...]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INVOICE SUMMARY (Month-to-Date):
+
+Service Provider Breakdown:
+┌──────────────────────────┬─────────┬────────┐
+│ Provider                 │ Amount  │ Visits │
+├──────────────────────────┼─────────┼────────┤
+│ FitLife Wellness Center  │ $1,240  │ 108    │
+│ YogaZen Studio           │ $360    │ 30     │
+│ AquaFit Pool             │ $240    │ 18     │
+└──────────────────────────┴─────────┴────────┘
+
+TOTAL AMOUNT DUE (so far): $1,840.00
+
+Note: Final invoice will be generated on October 31st
+
+[Export PDF] [Export CSV] [Email to Finance] [View Full Details]
+This view shows accumulated data for the current month and auto-updates with each new attendance!
+
+VIEW 3: EMPLOYEE MANAGEMENT
+Lisa clicks "Manage Employees" tab:
+═══════════════════════════════════════════════════════
+TECHCORP - EMPLOYEE MANAGEMENT
+═══════════════════════════════════════════════════════
+
+Total Active Employees: 142
+
+[➕ Add New Employee]  [📤 Import from CSV]
+
+Search: [_____________________] 🔍
+
+┌──────────────┬─────────────┬──────────────┬────────────────┬────────┐
+│ Employee ID  │ Name        │ Department   │ Phone          │ Status │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-2847      │ John Doe    │ Marketing    │ +250-788-12... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-3921      │ Mary Smith  │ Marketing    │ +250-788-34... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-4821      │ Sarah Lee   │ Engineering  │ +250-788-56... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+└──────────────┴─────────────┴──────────────┴────────────────┴────────┘
+
+Recently Added:
+- David Chen (TC-9156) - Added 2 days ago
+- Emma Roberts (TC-9157) - Added 5 days ago
+
+Lisa adds a NEW employee:
+Lisa clicks "➕ Add New Employee"
+A form appears:
+═══════════════════════════════════════════════════════
+ADD NEW EMPLOYEE
+═══════════════════════════════════════════════════════
+
+Employee ID:      [TC-________]  (Auto-generated prefix)
+Full Name:        [_________________________]
+Department:       [▼ Select Department      ]
+                   - Marketing
+                   - Engineering
+                   - Sales
+                   - Finance
+                   - HR
+                   - Operations
+Phone Number:     [+250-___-___-___]
+Email (Optional): [_________________________]
+Profile Picture:  [Choose File] [No file chosen]
+
+[Cancel]  [Add Employee]
+Lisa fills in the form for a new hire:
+Employee ID:      TC-9200 ✓
+Full Name:        James Anderson
+Department:       Engineering
+Phone Number:     +250-788-999-888
+Email:            james.anderson@techcorp.com
+Profile Picture:  [james_photo.jpg] ✓
+
+[Cancel]  [Add Employee]
+Lisa clicks "Add Employee"
+✅ SUCCESS
+
+James Anderson has been added to TechCorp's wellness system.
+
+Employee ID: TC-9200
+Status: Active
+
+James can now access wellness services at any partner location.
+His profile picture will be shown during verification.
+
+[Add Another Employee]  [Back to List]
+James Anderson is now in the system and can immediately get OTP access (with photo verification) at any wellness center!
+
+Lisa removes a FORMER employee:
+Lisa searches for a former employee who left the company:
+Search: Robert Miller
+
+Results:
+┌──────────────┬────────────────┬──────────────┬───────────────┬────────┐
+│ Employee ID  │ Name           │ Department   │ Phone         │ Status │
+├──────────────┼────────────────┼──────────────┼───────────────┼────────┤
+│ TC-7823      │ Robert Miller  │ Sales        │ +250-788-77...│ Active │
+│              │                │              │ [Edit][Remove]│        │
+└──────────────┴────────────────┴──────────────┴───────────────┴────────┘
+Lisa clicks "Remove"
+⚠️  REMOVE EMPLOYEE
+
+Are you sure you want to remove Robert Miller (TC-7823)?
+
+This will:
+- Deactivate their Employee ID
+- Prevent future wellness access
+- Keep historical attendance records
+
+Last Activity: September 28, 2024 (17 days ago)
+Total Visits: 24
+
+[Cancel]  [Confirm Removal]
+Lisa clicks "Confirm Removal"
+✅ EMPLOYEE REMOVED
+
+Robert Miller (TC-7823) has been deactivated.
+
+They can no longer access wellness services.
+Historical records preserved for billing purposes.
+
+[Back to List]
+Robert's ID (TC-7823) is now invalid. If Sarah tries to admit him at the gym, the system will reject it with "Employee ID not found or inactive."
+
+PART 5: Real-Time Auto-Update in Action
+11:15 AM - A new employee gets access
+At FitLife Gym: Sarah admits Emma Watson (TC-8844) using the point collection flow:
+
+Enters: TC-8844 + Swimming
+Clicks [Admit]
+Emma's profile appears with photo
+Verifies identity
+Sends OTP
+Emma provides OTP
+Clicks [Verify & Admit]
+
+Sarah's success screen shows:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+
+Employee: Emma Watson (TC-8844)
+Company: TechCorp
+Department: Marketing
+Service: Swimming
+Amount: $15
+Time: 11:15 AM
+
+                    [Admit Another Employee]
+
+───────────────────────────────────────────────────────
+TODAY'S COLLECTION SUMMARY (Auto-Updated)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 7
+Total Revenue Today: $87.00
+───────────────────────────────────────────────────────
+
+At TechCorp Office: Lisa's dashboard automatically updates in real-time
+Lisa's "Today's Attendance" view instantly shows:
+🔴 NEW ENTRY (just now - 11:15 AM)
+
+┌──────────────┬──────────────┬──────────────┬─────────────────┬───────┐
+│ 11:15 AM ⭐  │ Emma Watson  │ Marketing    │ Swimming-AquaFit│ $15   │
+│              │ (TC-8844)    │              │                 │       │
+└──────────────┴──────────────┴──────────────┴─────────────────┴───────┘
+
+📊 UPDATED TODAY'S SUMMARY:
+───────────────────────────────────────────────────────
+Total Employees Active Today: 5 (was 4)
+Today's Cost: $57.00 (was $42.00)
+───────────────────────────────────────────────────────
+The monthly report also updates:
+📊 MARKETING DEPARTMENT
+Total Visits: 39 (was 38)
+Cost: $471.00 (was $456.00)
+
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ John Doe       │ 12     │ Gym(10), Yoga(2)     │ $144.00 │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mary Smith     │ 8      │ Swimming(6), Gym(2)  │ $110.00 │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Emma Watson ⭐ │ 1      │ Swimming(1)          │ $15.00  │
+│ (TC-8844) NEW  │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+Everything updates automatically - no manual refresh, no delays!
+
+KEY ENHANCEMENTS IN THIS UPDATED SCENARIO:
+✅ Point Collection Features Added:
+
+Profile Display on "Admit" Click:
+
+Employee profile picture shown immediately
+Full credentials displayed (Name, ID, Company, Department, Phone)
+Service and price clearly shown
+Visual verification before OTP is sent
+
+
+Integrated OTP Flow:
+
+Send OTP button visible after profile verification
+OTP input field appears after OTP is sent
+All on the same screen - no navigation needed
+
+
+Today's Collection Summary:
+
+Always visible on success screen after each admission
+Auto-updates with every new admission
+Shows: Total employees admitted + Total revenue today
+Updates in real-time without refresh
+
+
+Enhanced Security:
+
+Photo verification before OTP
+Receptionist confirms identity visually
+OTP still required for final confirmation
+
+
+Improved User Experience:
+
+Single-screen workflow
+All information visible at point of collection
+Immediate feedback on daily performance
+No need to navigate away to see totals
+
+
+
+
+This enhanced scenario maintains simplicity while adding critical point-of-collection features: photo verification, credentials display, and real-time revenue tracking! 🎯✅Corporate Sports & Wellness Access System - FINAL Scenario 1 (With Admit Button Flow)
+
+Scenario 1: Standard Employee Gym Visit (Complete with Admit Button)
+Characters:
+
+John Doe - Marketing Manager at TechCorp
+Sarah - Gym receptionist at FitLife Wellness Center
+Lisa - HR Manager at TechCorp
+
+
+THE COpastedthis was the scenario I enjoyed but there were few things I wanted to adjust :"okay it is almost done ,now one thing to add is that on the today's attence ,there should be the total amount of today and it should also auto update .so finaly give me the full scenario not be like "this one is like previous response " give me scenario"  can you help me to make it coherent because I saw you made some mistakes11:27 AMCorporate Sports & Wellness Access System - COMPLETE FINAL Scenario 1
+Scenario 1: Standard Employee Gym Visit with Point Collection
+Characters:
+
+John Doe - Marketing Manager at TechCorp
+Sarah - Gym receptionist at FitLife Wellness Center
+Lisa - HR Manager at TechCorp
+
+
+THE COMPLETE FLOW WITH ADMIT BUTTON:
+PART 1: Employee Gets Access (9:00 AM) - DETAILED FLOW
+John arrives at FitLife Wellness Center
+STEP 1: Initial Form Entry
+John approaches the reception desk:
+
+"Hi, I'm from TechCorp. I'd like to use the gym."
+
+Sarah opens the Service Provider Dashboard and sees the "Admit Staff" form:
+═══════════════════════════════════════════════════════
+ADMIT STAFF - FitLife Wellness Center
+═══════════════════════════════════════════════════════
+
+Employee ID:  [_____________________] 
+
+Service:      [▼ Select Service           ]
+               - Gym Access ($10/visit)
+               - Swimming Pool ($15/visit)
+               - Yoga Class ($12/visit)
+               - Personal Training ($25/visit)
+
+              [🔍 Admit]
+              
+═══════════════════════════════════════════════════════
+Sarah asks: "What's your Employee ID?"
+John: "It's TC-2847"
+Sarah types and selects:
+Employee ID:  [TC-2847]
+
+Service:      [Gym Access ($10/visit) ✓]
+
+              [🔍 Admit]  ← Sarah clicks this button
+
+STEP 2: System Processes & Shows Employee Details
+When Sarah clicks "Admit", the system:
+
+Searches for TC-2847 in the database
+Validates the employee exists and is active
+Fetches all employee details
+Generates OTP and sends SMS
+Displays employee information to Sarah
+
+Sarah's screen transforms to show:
+═══════════════════════════════════════════════════════
+EMPLOYEE VERIFICATION
+═══════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────┐
+│  [Photo]         EMPLOYEE DETAILS                   │
+│   ┌───┐                                             │
+│   │ 📷│         Name: John Doe                      │
+│   │   │         Employee ID: TC-2847                │
+│   └───┘         Company: TechCorp                   │
+│                 Department: Marketing                │
+│                 Phone: +250-788-123-456              │
+│                                                      │
+│  ✅ OTP Sent to +250-788-***-456                    │
+│  ⏰ Expires in: 2:58 minutes                        │
+└─────────────────────────────────────────────────────┘
+
+Selected Service: Gym Access
+Service Price: $10/visit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VERIFY EMPLOYEE
+
+Please ask the employee to provide the OTP code
+sent to their phone.
+
+Enter OTP: [___][___][___][___][___][___]
+
+            [❌ Cancel]  [✓ Verify & Grant Access]
+
+═══════════════════════════════════════════════════════
+This serves two purposes:
+
+Visual Confirmation - Sarah can see this is the right person
+Security Check - If the photo doesn't match, Sarah knows something is wrong
+
+
+STEP 3: John Receives OTP
+At the same moment, John's phone receives SMS:
+═══════════════════════════════════════
+FitLife Wellness Access
+
+Your verification code: 691243
+
+Valid for 3 minutes only.
+Do not share this code.
+
+Service: Gym Access
+Location: FitLife Downtown
+═══════════════════════════════════════
+
+STEP 4: OTP Entry & Verification
+Sarah asks: "Please provide the code you received"
+John looks at his phone: "The code is 6-9-1-2-4-3"
+Sarah enters the OTP in the text boxes:
+Enter OTP: [6][9][1][2][4][3]  ✓ All fields filled
+
+            [❌ Cancel]  [✓ Verify & Grant Access]
+                                      ↑
+                          Sarah clicks this button
+
+STEP 5: System Validates OTP
+When Sarah clicks "Verify & Grant Access":
+System checks:
+
+✅ OTP matches (691243 = 691243)
+✅ OTP not expired (entered after 45 seconds, still within 3 minutes)
+✅ OTP not already used
+✅ OTP belongs to this employee
+
+Processing message appears briefly (1-2 seconds):
+⏳ Verifying...
+
+STEP 6: Success Screen
+Sarah's screen shows SUCCESS:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────┐
+│  [Photo]         ADMISSION CONFIRMED                │
+│   ┌───┐                                             │
+│   │ 📷│         Name: John Doe                      │
+│   │   │         Employee ID: TC-2847                │
+│   └───┘         Company: TechCorp                   │
+│                 Department: Marketing                │
+│                                                      │
+│  Service: Gym Access                                │
+│  Price: $10                                         │
+│  Time: 9:03 AM - October 15, 2024                  │
+│                                                      │
+│  ✅ Attendance Logged Successfully                  │
+│  📧 Confirmation sent to employee's phone           │
+└─────────────────────────────────────────────────────┘
+
+              [← Admit Another Employee]
+
+═══════════════════════════════════════════════════════
+
+STEP 7: John's Confirmation SMS
+John receives final confirmation:
+═══════════════════════════════════════
+FitLife Wellness
+
+✓ ACCESS CONFIRMED!
+
+Service: Gym Access
+Time: 9:03 AM, Oct 15, 2024
+Location: FitLife Downtown
+
+Enjoy your workout!
+═══════════════════════════════════════
+
+STEP 8: Automatic Attendance Logging (Backend)
+System automatically creates attendance record:
+Attendance Record #A00234:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Employee Details:
+  - ID: TC-2847
+  - Name: John Doe
+  - Company: TechCorp
+  - Department: Marketing
+  - Phone: +250-788-123-456
+
+Service Details:
+  - Service: Gym Access
+  - Provider: FitLife Wellness Center
+  - Price: $10
+  - Timestamp: 2024-10-15 09:03:42
+
+Status: ✅ Confirmed
+Verification: OTP Validated
+Location: Downtown Branch
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 9: Dashboard Auto-Updates
+Three dashboards update simultaneously:
+
+Sarah's "Today's Attendance" - Shows John's entry with updated total
+Lisa's (HR) "Today's Attendance" - Shows TechCorp employee activity
+FitLife Revenue Dashboard - Adds $10 to today's revenue
+
+
+VISUAL FLOW DIAGRAM:
+┌─────────────────────────────────────────────────────────────┐
+│  SARAH'S SCREEN JOURNEY                                     │
+└─────────────────────────────────────────────────────────────┘
+
+SCREEN 1: Initial Form
+┌──────────────────────┐
+│ Employee ID: [____] │
+│ Service: [____▼]    │
+│   [🔍 Admit]        │ ← Sarah fills and clicks
+└──────────────────────┘
+           ↓
+           ↓ (System processes)
+           ↓
+SCREEN 2: Employee Verification Card
+┌──────────────────────────────────┐
+│  [Photo] John Doe                │
+│  TC-2847 | TechCorp | Marketing  │
+│  ✅ OTP Sent to +250-788-***-456 │
+│  ⏰ Expires in 2:58              │
+│                                   │
+│  Enter OTP: [_][_][_][_][_][_]  │ ← Sarah enters code
+│  [❌ Cancel] [✓ Verify]          │ ← Sarah clicks verify
+└──────────────────────────────────┘
+           ↓
+           ↓ (System validates)
+           ↓
+SCREEN 3: Success Confirmation
+┌──────────────────────────────────┐
+│  ✅ ACCESS GRANTED                │
+│  [Photo] John Doe admitted       │
+│  Service: Gym Access | $10       │
+│  Time: 9:03 AM                   │
+│  [← Admit Another Employee]      │ ← Ready for next person
+└──────────────────────────────────┘
+
+ERROR HANDLING SCENARIOS:
+ERROR 1: Invalid Employee ID
+Sarah enters: TC-9999 (doesn't exist)
+After clicking "Admit", screen shows:
+═══════════════════════════════════════════════════════
+❌ EMPLOYEE NOT FOUND
+═══════════════════════════════════════════════════════
+
+Employee ID: TC-9999
+
+This employee ID is not registered in the system.
+
+Possible reasons:
+- Employee ID entered incorrectly
+- Employee not yet registered by their company
+- Employee account has been deactivated
+
+Please verify the ID or contact the employee's HR.
+
+              [← Try Again]
+
+═══════════════════════════════════════════════════════
+
+ERROR 2: Wrong OTP Entered
+John says: "6-9-1-2-4-3"
+Sarah enters: "6-9-1-2-5-3" (wrong digit)
+After clicking "Verify", screen shows:
+═══════════════════════════════════════════════════════
+❌ INVALID OTP
+═══════════════════════════════════════════════════════
+
+The verification code you entered is incorrect.
+
+Attempts remaining: 2 of 3
+
+Please ask the employee to read the code again carefully.
+
+Enter OTP: [___][___][___][___][___][___]
+
+            [❌ Cancel]  [✓ Verify & Grant Access]
+            
+            [🔄 Resend OTP]
+
+═══════════════════════════════════════════════════════
+After 3 failed attempts:
+═══════════════════════════════════════════════════════
+🔒 TOO MANY FAILED ATTEMPTS
+═══════════════════════════════════════════════════════
+
+For security reasons, this OTP has been locked.
+
+Please generate a new OTP.
+
+              [🔄 Start Over]
+
+═══════════════════════════════════════════════════════
+
+ERROR 3: Expired OTP
+John takes 4 minutes to find his phone
+Sarah enters the OTP after expiry:
+═══════════════════════════════════════════════════════
+⏰ OTP EXPIRED
+═══════════════════════════════════════════════════════
+
+This verification code has expired.
+
+OTPs are valid for 3 minutes only for security.
+
+Please generate a new OTP.
+
+              [🔄 Send New OTP]
+
+═══════════════════════════════════════════════════════
+
+PART 2: Today's Attendance Auto-Update with Total Amount
+Sarah's Dashboard - Right After Admitting John (9:03 AM):
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+
+🔴 LIVE (Auto-refresh: ON)
+
+📊 TODAY'S COLLECTION SUMMARY
+───────────────────────────────────────────────────────
+Total Employees Admitted: 1
+Total Revenue Today: $10.00
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Recent Admissions:
+
+┌─────────┬────────┬──────────────┬──────────────┬──────────┬───────┐
+│ Time    │ Photo  │ Employee     │ Company      │ Service  │ Price │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM │ [📷]  │ John Doe     │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-2847)    │ Marketing    │          │       │
+└─────────┴────────┴──────────────┴──────────────┴──────────┴───────┘
+
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 1         │ $10.00  │
+└──────────────┴───────────┴─────────┘
+
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 1         │ $10.00  │
+└──────────────┴───────────┴─────────┘
+
+[Export Today's Report] [View All Time] [Print Summary]
+
+═══════════════════════════════════════════════════════
+
+9:22 AM - Sarah Admits Linda Park
+Sarah repeats the process:
+
+Enters: TC-3394 + Gym Access
+Clicks [Admit]
+Sees Linda's profile with photo
+Verifies it's her
+Clicks [Send OTP]
+Linda provides OTP: 847291
+Sarah enters OTP and clicks [Verify & Grant Access]
+
+Dashboard automatically updates:
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+
+🔴 LIVE (Auto-refresh: ON)
+
+📊 TODAY'S COLLECTION SUMMARY (Auto-Updated!)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 2 ⬆️
+Total Revenue Today: $20.00 ⬆️
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Recent Admissions:
+
+┌─────────┬────────┬──────────────┬──────────────┬──────────┬───────┐
+│ Time    │ Photo  │ Employee     │ Company      │ Service  │ Price │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:22 AM │ [📷]  │ Linda Park   │ TechCorp     │ Gym      │ $10   │
+│ 🆕     │        │ (TC-3394)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM │ [📷]  │ John Doe     │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-2847)    │ Marketing    │          │       │
+└─────────┴────────┴──────────────┴──────────────┴──────────┴───────┘
+
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 2         │ $20.00  │
+└──────────────┴───────────┴─────────┘
+
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 2         │ $20.00  │
+└──────────────┴───────────┴─────────┘
+
+[Export Today's Report] [View All Time] [Print Summary]
+
+═══════════════════════════════════════════════════════
+Note: New entries appear at the top with a "🆕" indicator for 30 seconds!
+
+10:05 AM - Sarah Admits Sarah Lee (TechCorp - Yoga)
+Same admission process... Dashboard updates:
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+
+🔴 LIVE (Auto-refresh: ON)
+
+📊 TODAY'S COLLECTION SUMMARY (Auto-Updated!)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 3 ⬆️
+Total Revenue Today: $32.00 ⬆️
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Recent Admissions:
+
+┌─────────┬────────┬──────────────┬──────────────┬──────────┬───────┐
+│ Time    │ Photo  │ Employee     │ Company      │ Service  │ Price │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:05AM │ [📷]  │ Sarah Lee    │ TechCorp     │ Yoga     │ $12   │
+│ 🆕     │        │ (TC-4821)    │ Engineering  │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:22 AM │ [📷]  │ Linda Park   │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-3394)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM │ [📷]  │ John Doe     │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-2847)    │ Marketing    │          │       │
+└─────────┴────────┴──────────────┴──────────────┴──────────┴───────┘
+
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 3         │ $32.00  │
+└──────────────┴───────────┴─────────┘
+
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 2         │ $20.00  │
+│ Yoga         │ 1         │ $12.00  │
+└──────────────┴───────────┴─────────┘
+
+[Export Today's Report] [View All Time] [Print Summary]
+
+═══════════════════════════════════════════════════════
+
+10:15 AM - Mike Chen (TechCorp - Gym)
+10:28 AM - Emma Wilson (BizCorp - Swimming)
+10:47 AM - David Brown (MegaInc - Gym)
+After admitting all these employees throughout the morning...
+
+11:00 AM - Sarah's Complete Dashboard View:
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+
+🔴 LIVE (Auto-refresh: ON)
+
+📊 TODAY'S COLLECTION SUMMARY (Auto-Updated!)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 6 ⬆️
+Total Revenue Today: $72.00 ⬆️
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Recent Admissions (Latest First):
+
+┌─────────┬────────┬──────────────┬──────────────┬──────────┬───────┐
+│ Time    │ Photo  │ Employee     │ Company      │ Service  │ Price │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:47AM │ [📷]  │ David Brown  │ MegaInc      │ Gym      │ $10   │
+│         │        │ (MI-7714)    │ Operations   │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:28AM │ [📷]  │ Emma Wilson  │ BizCorp      │ Swimming │ $15   │
+│         │        │ (BC-4921)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:15AM │ [📷]  │ Mike Chen    │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-5129)    │ Engineering  │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:05AM │ [📷]  │ Sarah Lee    │ TechCorp     │ Yoga     │ $12   │
+│         │        │ (TC-4821)    │ Engineering  │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:22 AM │ [📷]  │ Linda Park   │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-3394)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM │ [📷]  │ John Doe     │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-2847)    │ Marketing    │          │       │
+└─────────┴────────┴──────────────┴──────────────┴──────────┴───────┘
+
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 4         │ $42.00  │
+│ BizCorp      │ 1         │ $15.00  │
+│ MegaInc      │ 1         │ $10.00  │
+└──────────────┴───────────┴─────────┘
+
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 4         │ $40.00  │
+│ Swimming     │ 1         │ $15.00  │
+│ Yoga         │ 1         │ $12.00  │
+└──────────────┴───────────┴─────────┘
+
+[Export Today's Report] [View All Time] [Print Summary]
+
+═══════════════════════════════════════════════════════
+
+PART 3: Lisa (HR) Monitors Company Wellness Usage
+10:45 AM - Lisa Checks Today's Activity
+Lisa logs into TechCorp Company Dashboard and sees:
+VIEW 1: TODAY'S ATTENDANCE (Auto-updating)
+═══════════════════════════════════════════════════════
+TECHCORP - TODAY'S WELLNESS ACTIVITY
+October 15, 2024
+═══════════════════════════════════════════════════════
+
+🔴 LIVE UPDATES (Refreshes every 30 seconds)
+
+📊 TODAY'S SUMMARY:
+───────────────────────────────────────────────────────
+Total Employees Active Today: 4
+Total Visits Today: 4
+Today's Cost: $42.00
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Recent Activity (Latest First):
+
+┌──────────┬────────┬───────────────┬────────────┬──────────────────┬───────┐
+│ Time     │ Photo  │ Employee      │ Department │ Service/Provider │ Cost  │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 10:15 AM │ [📷] │ Mike Chen     │ Engineering│ Gym-FitLife      │ $10   │
+│          │        │ (TC-5129)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 10:05 AM │ [📷] │ Sarah Lee     │ Engineering│ Yoga-YogaZen     │ $12   │
+│          │        │ (TC-4821)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 9:22 AM  │ [📷] │ Linda Park    │ Sales      │ Gym-FitLife      │ $10   │
+│          │        │ (TC-3394)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 9:03 AM  │ [📷] │ John Doe      │ Marketing  │ Gym-FitLife      │ $10   │
+│          │        │ (TC-2847)     │            │                  │       │
+└──────────┴────────┴───────────────┴────────────┴──────────────────┴───────┘
+
+BY DEPARTMENT TODAY:
+┌──────────────┬────────┬─────────┐
+│ Department   │ Visits │ Cost    │
+├──────────────┼────────┼─────────┤
+│ Engineering  │ 2      │ $22.00  │
+│ Marketing    │ 1      │ $10.00  │
+│ Sales        │ 1      │ $10.00  │
+└──────────────┴────────┴─────────┘
+
+[View Yesterday] [View This Week] [Export Today's Data]
+
+═══════════════════════════════════════════════════════
+This view auto-updates whenever any TechCorp employee gets admitted at any wellness center!
+
+VIEW 2: MONTHLY ATTENDANCE + INVOICE (October)
+Lisa clicks "Monthly Report" tab:
+═══════════════════════════════════════════════════════
+TECHCORP - OCTOBER 2024 WELLNESS REPORT
+═══════════════════════════════════════════════════════
+
+Report Period: Oct 1 - Oct 31, 2024 (Today is Oct 15)
+Status: Month in Progress
+
+📊 MONTH-TO-DATE SUMMARY:
+───────────────────────────────────────────────────────
+Total Employees Using Services: 28
+Total Visits This Month: 156
+Current Month Cost: $1,840.00
+Projected Month-End Cost: ~$3,680.00
+───────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DEPARTMENT BREAKDOWN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 MARKETING DEPARTMENT
+Total Visits: 38 | Cost: $456.00
+
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ John Doe       │ 12     │ Gym(10), Yoga(2)     │ $144.00 │
+│ (TC-2847)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mary Smith     │ 8      │ Swimming(6), Gym(2)  │ $110.00 │
+│ (TC-3921)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Alex Johnson   │ 6      │ Gym(6)               │ $60.00  │
+│ (TC-4472)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 ENGINEERING DEPARTMENT
+Total VisitsContinue11:29 AM: 67 | Cost: $778.00
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mike Chen      │ 18     │ Gym(15), Swimming(3) │ $195.00 │
+│ (TC-5129)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Sarah Lee      │ 14     │ Yoga(9), Gym(5)      │ $158.00 │
+│ (TC-4821)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Tom Wilson     │ 11     │ Gym(11)              │ $110.00 │
+│ (TC-6638)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 SALES DEPARTMENT
+Total Visits: 51 | Cost: $606.00
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Linda Park     │ 15     │ Gym(12), Swimming(3) │ $165.00 │
+│ (TC-3394)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Robert Chen    │ 13     │ Gym(10), Yoga(3)     │ $136.00 │
+│ (TC-4456)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Jennifer Wu    │ 10     │ Yoga(8), Gym(2)      │ $116.00 │
+│ (TC-5567)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INVOICE SUMMARY (Month-to-Date):
+Service Provider Breakdown:
+┌──────────────────────────┬─────────────┬────────┐
+│ Provider                 │ Amount      │ Visits │
+├──────────────────────────┼─────────────┼────────┤
+│ FitLife Wellness Center  │ $1,240.00   │ 108    │
+│ YogaZen Studio           │ $360.00     │ 30     │
+│ AquaFit Pool             │ $240.00     │ 18     │
+└──────────────────────────┴─────────────┴────────┘
+TOTAL AMOUNT DUE (so far): $1,840.00
+Note: Final invoice will be generated on October 31st
+[Export PDF] [Export CSV] [Email to Finance] [View Full Details]
+═══════════════════════════════════════════════════════
+
+---
+
+#### VIEW 3: EMPLOYEE MANAGEMENT
+
+Lisa clicks "**Manage Employees**" tab:
+═══════════════════════════════════════════════════════
+TECHCORP - EMPLOYEE MANAGEMENT
+═══════════════════════════════════════════════════════
+Total Active Employees: 142
+[➕ Add New Employee]  [📤 Import from CSV]
+Search: [_____________________] 🔍
+┌──────────────┬─────────────┬──────────────┬────────────────┬────────┐
+│ Employee ID  │ Name        │ Department   │ Phone          │ Status │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-2847      │ John Doe    │ Marketing    │ +250-788-12... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-3921      │ Mary Smith  │ Marketing    │ +250-788-34... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-4821      │ Sarah Lee   │ Engineering  │ +250-788-56... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+├──────────────┼─────────────┼──────────────┼────────────────┼────────┤
+│ TC-5129      │ Mike Chen   │ Engineering  │ +250-788-78... │ Active │
+│              │             │              │ [Edit] [Remove]│        │
+└──────────────┴─────────────┴──────────────┴────────────────┴────────┘
+Recently Added:
+
+David Chen (TC-9156) - Added 2 days ago
+Emma Roberts (TC-9157) - Added 5 days ago
+
+[Show All 142 Employees]
+═══════════════════════════════════════════════════════
+
+---
+
+#### Lisa Adds a NEW Employee:
+
+Lisa clicks "**➕ Add New Employee**"
+
+A form appears:
+═══════════════════════════════════════════════════════
+ADD NEW EMPLOYEE
+═══════════════════════════════════════════════════════
+Employee ID:      [TC-]  (Auto-generated prefix)
+Full Name:        [________________]
+Department:       [▼ Select Department      ]
+- Marketing
+- Engineering
+- Sales
+- Finance
+- HR
+- Operations
+Phone Number:     [+250---]
+Email (Optional): [_______________]
+Profile Picture:  [Choose File] [No file chosen]
+[Cancel]  [Add Employee]
+═══════════════════════════════════════════════════════
+
+Lisa fills in the form for a new hire:
+Employee ID:      TC-9200 ✓
+Full Name:        James Anderson
+Department:       Engineering
+Phone Number:     +250-788-999-888
+Email:            james.anderson@techcorp.com
+Profile Picture:  [james_photo.jpg] ✓
+[Cancel]  [Add Employee]
+
+Lisa clicks "**Add Employee**"
+═══════════════════════════════════════════════════════
+✅ SUCCESS
+═══════════════════════════════════════════════════════
+James Anderson has been added to TechCorp's wellness system.
+Employee ID: TC-9200
+Status: Active
+James can now access wellness services at any partner location.
+His profile picture will be shown during verification.
+[Add Another Employee]  [Back to List]
+═══════════════════════════════════════════════════════
+
+**James Anderson is now in the system and can immediately get OTP access (with photo verification) at any wellness center!**
+
+---
+
+#### Lisa Removes a FORMER Employee:
+
+Lisa searches for a former employee who left the company:
+Search: Robert Miller
+Results:
+┌──────────────┬────────────────┬──────────────┬───────────────┬────────┐
+│ Employee ID  │ Name           │ Department   │ Phone         │ Status │
+├──────────────┼────────────────┼──────────────┼───────────────┼────────┤
+│ TC-7823      │ Robert Miller  │ Sales        │ +250-788-77...│ Active │
+│              │                │              │ [Edit][Remove]│        │
+└──────────────┴────────────────┴──────────────┴───────────────┴────────┘
+
+Lisa clicks "**Remove**"
+═══════════════════════════════════════════════════════
+⚠️  REMOVE EMPLOYEE
+═══════════════════════════════════════════════════════
+Are you sure you want to remove Robert Miller (TC-7823)?
+This will:
+
+Deactivate their Employee ID
+Prevent future wellness access
+Keep historical attendance records
+
+Last Activity: September 28, 2024 (17 days ago)
+Total Visits: 24
+[Cancel]  [Confirm Removal]
+═══════════════════════════════════════════════════════
+
+Lisa clicks "**Confirm Removal**"
+═══════════════════════════════════════════════════════
+✅ EMPLOYEE REMOVED
+═══════════════════════════════════════════════════════
+Robert Miller (TC-7823) has been deactivated.
+They can no longer access wellness services.
+Historical records preserved for billing purposes.
+[Back to List]
+═══════════════════════════════════════════════════════
+
+**Robert's ID (TC-7823) is now invalid. If Sarah tries to admit him at the gym, the system will reject it with "Employee ID not found or inactive."**
+
+---
+
+## PART 4: Real-Time Auto-Update in Action
+
+### 11:15 AM - A New Employee Gets Access
+
+**At FitLife Gym:** Sarah admits Emma Watson (TC-8844) using the point collection flow:
+
+1. Enters: TC-8844 + Swimming ($15)
+2. Clicks **[Admit]**
+3. **Emma's profile appears with photo**
+4. Verifies identity matches photo
+5. System automatically sends OTP
+6. Emma provides OTP: 523817
+7. Sarah enters OTP and clicks **[Verify & Grant Access]**
+
+Sarah's success screen shows:
+═══════════════════════════════════════════════════════
+✅ ACCESS GRANTED
+═══════════════════════════════════════════════════════
+┌─────────────────────────────────────────────────────┐
+│  [Photo]         ADMISSION CONFIRMED                │
+│   ┌───┐                                             │
+│   │ 📷│         Name: Emma Watson                   │
+│   │   │         Employee ID: TC-8844                │
+│   └───┘         Company: TechCorp                   │
+│                 Department: Marketing                │
+│                                                      │
+│  Service: Swimming                                  │
+│  Price: $15                                         │
+│  Time: 11:15 AM - October 15, 2024                 │
+│                                                      │
+│  ✅ Attendance Logged Successfully                  │
+│  📧 Confirmation sent to employee's phone           │
+└─────────────────────────────────────────────────────┘
+          [← Admit Another Employee]
+═══════════════════════════════════════════════════════
+
+---
+
+**Sarah's "Today's Attendance" dashboard INSTANTLY updates:**
+═══════════════════════════════════════════════════════
+TODAY'S ATTENDANCE - October 15, 2024
+FitLife Wellness Center - Downtown Branch
+═══════════════════════════════════════════════════════
+🔴 LIVE (Auto-refresh: ON)
+📊 TODAY'S COLLECTION SUMMARY (Auto-Updated!)
+───────────────────────────────────────────────────────
+Total Employees Admitted: 7 ⬆️ (was 6)
+Total Revenue Today: $87.00 ⬆️ (was $72.00)
+───────────────────────────────────────────────────────
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Recent Admissions (Latest First):
+┌─────────┬────────┬──────────────┬──────────────┬──────────┬───────┐
+│ Time    │ Photo  │ Employee     │ Company      │ Service  │ Price │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 11:15AM │ [📷]  │ Emma Watson  │ TechCorp     │ Swimming │ $15   │
+│ 🆕⭐   │        │ (TC-8844)    │ Marketing    │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:47AM │ [📷]  │ David Brown  │ MegaInc      │ Gym      │ $10   │
+│         │        │ (MI-7714)    │ Operations   │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:28AM │ [📷]  │ Emma Wilson  │ BizCorp      │ Swimming │ $15   │
+│         │        │ (BC-4921)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:15AM │ [📷]  │ Mike Chen    │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-5129)    │ Engineering  │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 10:05AM │ [📷]  │ Sarah Lee    │ TechCorp     │ Yoga     │ $12   │
+│         │        │ (TC-4821)    │ Engineering  │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:22 AM │ [📷]  │ Linda Park   │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-3394)    │ Sales        │          │       │
+├─────────┼────────┼──────────────┼──────────────┼──────────┼───────┤
+│ 9:03 AM │ [📷]  │ John Doe     │ TechCorp     │ Gym      │ $10   │
+│         │        │ (TC-2847)    │ Marketing    │          │       │
+└─────────┴────────┴──────────────┴──────────────┴──────────┴───────┘
+By Company Today:
+┌──────────────┬───────────┬─────────┐
+│ Company      │ Employees │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ TechCorp     │ 5 ⬆️      │ $57.00  │
+│ BizCorp      │ 1         │ $15.00  │
+│ MegaInc      │ 1         │ $10.00  │
+└──────────────┴───────────┴─────────┘
+By Service Today:
+┌──────────────┬───────────┬─────────┐
+│ Service      │ Count     │ Revenue │
+├──────────────┼───────────┼─────────┤
+│ Gym Access   │ 4         │ $40.00  │
+│ Swimming     │ 2 ⬆️      │ $30.00  │
+│ Yoga         │ 1         │ $12.00  │
+└──────────────┴───────────┴─────────┘
+[Export Today's Report] [View All Time] [Print Summary]
+═══════════════════════════════════════════════════════
+
+---
+
+**At TechCorp Office:** Lisa's dashboard **automatically updates in real-time**
+
+Lisa's "Today's Attendance" view instantly shows:
+═══════════════════════════════════════════════════════
+TECHCORP - TODAY'S WELLNESS ACTIVITY
+October 15, 2024
+═══════════════════════════════════════════════════════
+🔴 LIVE UPDATES (Refreshes every 30 seconds)
+📊 TODAY'S SUMMARY (Auto-Updated!)
+───────────────────────────────────────────────────────
+Total Employees Active Today: 5 ⬆️ (was 4)
+Total Visits Today: 5 ⬆️ (was 4)
+Today's Cost: $57.00 ⬆️ (was $42.00)
+───────────────────────────────────────────────────────
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Recent Activity (Latest First):
+┌──────────┬────────┬───────────────┬────────────┬──────────────────┬───────┐
+│ Time     │ Photo  │ Employee      │ Department │ Service/Provider │ Cost  │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 11:15 AM │ [📷] │ Emma Watson   │ Marketing  │ Swimming-AquaFit │ $15   │
+│ 🆕⭐    │        │ (TC-8844)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 10:15 AM │ [📷] │ Mike Chen     │ Engineering│ Gym-FitLife      │ $10   │
+│          │        │ (TC-5129)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 10:05 AM │ [📷] │ Sarah Lee     │ Engineering│ Yoga-YogaZen     │ $12   │
+│          │        │ (TC-4821)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 9:22 AM  │ [📷] │ Linda Park    │ Sales      │ Gym-FitLife      │ $10   │
+│          │        │ (TC-3394)     │            │                  │       │
+├──────────┼────────┼───────────────┼────────────┼──────────────────┼───────┤
+│ 9:03 AM  │ [📷] │ John Doe      │ Marketing  │ Gym-FitLife      │ $10   │
+│          │        │ (TC-2847)     │            │                  │       │
+└──────────┴────────┴───────────────┴────────────┴──────────────────┴───────┘
+BY DEPARTMENT TODAY:
+┌──────────────┬────────┬─────────┐
+│ Department   │ Visits │ Cost    │
+├──────────────┼────────┼─────────┤
+│ Marketing    │ 2 ⬆️   │ $25.00  │
+│ Engineering  │ 2      │ $22.00  │
+│ Sales        │ 1      │ $10.00  │
+└──────────────┴────────┴─────────┘
+[View Yesterday] [View This Week] [Export Today's Data]
+═══════════════════════════════════════════════════════
+
+The monthly report also updates:
+📊 MARKETING DEPARTMENT
+Total Visits: 39 ⬆️ (was 38)
+Cost: $471.00 ⬆️ (was $456.00)
+Top Users:
+┌────────────────┬────────┬──────────────────────┬─────────┐
+│ Employee       │ Visits │ Services Used        │ Cost    │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ John Doe       │ 12     │ Gym(10), Yoga(2)     │ $144.00 │
+│ (TC-2847)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Mary Smith     │ 8      │ Swimming(6), Gym(2)  │ $110.00 │
+│ (TC-3921)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Alex Johnson   │ 6      │ Gym(6)               │ $60.00  │
+│ (TC-4472)      │        │                      │         │
+├────────────────┼────────┼──────────────────────┼─────────┤
+│ Emma Watson 🆕 │ 1      │ Swimming(1)          │ $15.00  │
+│ (TC-8844)      │        │                      │         │
+└────────────────┴────────┴──────────────────────┴─────────┘
+
+---
+
+## KEY FEATURES SUMMARY:
+
+### ✅ Admit Button Workflow:
+1. Sarah enters Employee ID + Service
+2. Clicks "**Admit**" button
+3. System shows Employee Card with Photo + Details
+4. OTP automatically sent in background
+5. OTP text box appears for Sarah to enter
+6. Sarah enters code employee provides
+7. Clicks "**Verify & Grant Access**"
+8. Success confirmation shown
+9. **Today's total amount auto-updates**
+
+### ✅ Employee Verification Card Shows:
+- 📷 Profile Photo
+- Full Name
+- Employee ID
+- Company Name
+- Department
+- Phone Number (partially masked)
+- OTP sent confirmation
+- Countdown timer (expires in X minutes)
+- OTP input text boxes
+
+### ✅ Today's Attendance Features:
+- **Total Revenue Today** - Prominently displayed at top
+- **Total Employees Admitted** - Count of unique employees
+- **Auto-updates in real-time** - No manual refresh needed
+- **🆕 indicator** - Shows new entries for 30 seconds
+- **By Company breakdown** - Shows revenue per company
+- **By Service breakdown** - Shows revenue per service type
+
+### ✅ Security Features:
+- Visual confirmation with photo
+- OTP expires in 3 minutes
+- Maximum 3 OTP attempts
+- Resend OTP option
+- All verification logged
+
+### ✅ Employee Experience:
+- Receives 2 SMS only:
+  1. OTP code (for verification)
+  2. Confirmation (access granted)
+- **No app needed**
+- **No login required**
+- **No system interaction**
+
+**Everything updates automatically - no manual refresh, no delays!** 🎯✅

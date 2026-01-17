@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box p {
+            margin: 8px 0;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .feature-list li:before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #667eea;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 25px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🎉 Welcome to WellPass!</h1>
+    </div>
+    <div class="content">
+        <p>Hello <strong>{{employeeName}}</strong>,</p>
+        <p>Welcome to WellPass! We're excited to have you on board.</p>
+        <p>Your company, <strong>{{companyName}}</strong>, has enrolled you in our wellness benefits program.</p>
+
+        <div class="info-box">
+            <p><strong>Your Account Details:</strong></p>
+            <p><strong>Employee ID:</strong> {{employeeId}}</p>
+            <p><strong>Department:</strong> {{department}}</p>
+            <p><strong>Company:</strong> {{companyName}}</p>
+        </div>
+
+        <h3>What You Can Do with WellPass:</h3>
+        <ul class="feature-list">
+            <li>Access gyms, yoga studios, and wellness centers</li>
+            <li>Track your fitness journey and attendance</li>
+            <li>Get instant access with SMS verification</li>
+            <li>View your usage history and analytics</li>
+            <li>Enjoy hassle-free check-ins at partner facilities</li>
+        </ul>
+
+        <center>
+            <a href="{{appUrl}}" class="button">Get Started</a>
+        </center>
+
+        <p>If you have any questions, please contact your HR department or reach out to our support team.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 WellPass Management System. All rights reserved.</p>
+        <p>Need help? Contact us at support@wellpass.com</p>
+    </div>
+</div>
+</body>
+</html>

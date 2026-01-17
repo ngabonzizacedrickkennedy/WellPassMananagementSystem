@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .success-icon {
+            text-align: center;
+            font-size: 60px;
+            margin: 20px 0;
+        }
+        .details-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .details-row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            color: #6c757d;
+            font-weight: bold;
+        }
+        .value {
+            color: #212529;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>✅ Access Confirmed</h1>
+    </div>
+    <div class="content">
+        <div class="success-icon">🎉</div>
+        <h2 style="text-align: center; color: #10b981;">Welcome, {{employeeName}}!</h2>
+        <p style="text-align: center;">Your access has been successfully verified.</p>
+
+        <div class="details-box">
+            <h3 style="margin-top: 0;">Visit Details</h3>
+            <div class="details-row">
+                <span class="label">Service:</span>
+                <span class="value">{{serviceName}}</span>
+            </div>
+            <div class="details-row">
+                <span class="label">Location:</span>
+                <span class="value">{{serviceProviderName}}</span>
+            </div>
+            <div class="details-row">
+                <span class="label">Check-in Time:</span>
+                <span class="value">{{checkInTime}}</span>
+            </div>
+            <div class="details-row">
+                <span class="label">Price:</span>
+                <span class="value">${{price}}</span>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #10b981; font-size: 18px; font-weight: bold;">
+            Enjoy your workout! 💪
+        </p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 WellPass Management System. All rights reserved.</p>
+        <p>Questions? Contact your HR department.</p>
+    </div>
+</div>
+</body>
+</html>
