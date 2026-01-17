@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const response = await authService.register(data);
       setUser(response.user);
-      router.push('/dashboard');
+      router.push('/login');
     } catch (error) {
       throw error;
     }
