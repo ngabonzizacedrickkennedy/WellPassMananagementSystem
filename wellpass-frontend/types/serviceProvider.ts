@@ -1,60 +1,65 @@
 export interface ServiceProvider {
   id: number;
-  name: string;
+  providerName: string;
+  providerCode: string;
   serviceType: ServiceType;
-  registrationNumber: string;
-  address: string;
-  city: string;
-  country: string;
-  phoneNumber: string;
-  email: string;
-  contactPerson: string;
-  contactPhone: string;
-  operatingHours: string;
-  facilities: string[];
-  specializations: string[];
-  rating?: number;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  operatingHours?: string;
+  capacity?: number;
+  pricePerVisit?: number;
+  description?: string;
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
 }
 
 export enum ServiceType {
-  HOSPITAL = 'HOSPITAL',
-  CLINIC = 'CLINIC',
-  PHARMACY = 'PHARMACY',
-  LABORATORY = 'LABORATORY',
-  DENTAL = 'DENTAL',
-  OPTICAL = 'OPTICAL',
-  PHYSIOTHERAPY = 'PHYSIOTHERAPY',
-  MENTAL_HEALTH = 'MENTAL_HEALTH',
-  OTHER = 'OTHER',
+  GYM = 'GYM',
+  SWIMMING_POOL = 'SWIMMING_POOL',
+  YOGA_STUDIO = 'YOGA_STUDIO',
+  SPA = 'SPA',
+  SPORTS_COMPLEX = 'SPORTS_COMPLEX',
+  FITNESS_CENTER = 'FITNESS_CENTER',
 }
 
 export interface CreateServiceProviderRequest {
-  name: string;
+  providerName: string;
   serviceType: ServiceType;
-  registrationNumber: string;
-  address: string;
-  city: string;
-  country: string;
-  phoneNumber: string;
-  email: string;
-  contactPerson: string;
-  contactPhone: string;
-  operatingHours: string;
-  facilities: string[];
-  specializations: string[];
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  operatingHours?: string;
+  capacity?: number;
+  pricePerVisit?: number;
+  description?: string;
 }
 
-export interface UpdateServiceProviderRequest extends Partial<CreateServiceProviderRequest> {
-  rating?: number;
-  isActive?: boolean;
-}
-
-export interface ServiceProviderFilter {
+export interface UpdateServiceProviderRequest {
+  providerName?: string;
   serviceType?: ServiceType;
-  city?: string;
-  isActive?: boolean;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  operatingHours?: string;
+  capacity?: number;
+  pricePerVisit?: number;
+  description?: string;
+}
+
+export interface ServiceProviderStats {
+  totalProviders: number;
+  activeProviders: number;
+  inactiveProviders: number;
+  totalVisitsToday: number;
+  totalRevenueToday: number;
+}
+
+export interface ServiceProviderFilters {
   search?: string;
+  serviceType?: ServiceType;
+  isActive?: boolean;
+  page?: number;
+  size?: number;
 }

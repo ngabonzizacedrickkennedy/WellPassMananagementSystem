@@ -1,8 +1,12 @@
 package com.varol.WellPass_Mananagement_System.controller.organization;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.varol.WellPass_Mananagement_System.dtos.response.common.ApiResponse;
+import com.varol.WellPass_Mananagement_System.dtos.response.common.PageResponse;
 import com.varol.WellPass_Mananagement_System.model.organization.ServiceProvider;
+import com.varol.WellPass_Mananagement_System.repository.organization.ServiceProviderRepository;
 import com.varol.WellPass_Mananagement_System.service.organization.ServiceProviderService;
 
 import jakarta.validation.Valid;
@@ -25,6 +31,31 @@ import lombok.RequiredArgsConstructor;
 public class ServiceProviderController {
 
     private final ServiceProviderService serviceProviderService;
+    private final ServiceProviderRepository serviceProviderRepository;
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'SERVICE_PROVIDER_ADMIN')")
+    public ResponseEntity<ApiResponse<PageResponse<ServiceProvider>>> getAllServiceProviders(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "10") Integer size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<ServiceProvider> providerPage = serviceProviderRepository.findAll(pageable);
+
+        PageResponse<ServiceProvider> response = new PageResponse<>(
+                providerPage.getContent(),
+                providerPage.getNumber(),
+                providerPage.getSize(),
+                providerPage.getTotalElements(),
+                providerPage.getTotalPages(),
+                providerPage.isFirst(),
+                providerPage.isLast(),
+                providerPage.hasNext(),
+                providerPage.hasPrevious()
+        );
+
+        return ResponseEntity.ok(ApiResponse.success(response));
+    }
 
     @PostMapping
     @PreAuthorize("hasRole('SUPER_ADMIN')")
