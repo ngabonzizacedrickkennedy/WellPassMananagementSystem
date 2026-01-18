@@ -1,81 +1,86 @@
 export interface Employee {
   id: number;
-  firstName: string;
-  lastName: string;
+  employeeCode: string;
+  fullName: string;
   email: string;
-  phoneNumber: string;
-  nationalId: string;
-  employeeNumber: string;
-  department: string;
-  position: string;
-  dateOfBirth: string;
-  gender: Gender;
-  address: string;
-  emergencyContact: string;
-  emergencyPhone: string;
-  hireDate: string;
-  contractType: ContractType;
-  employmentStatus: EmploymentStatus;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  address?: string;
   companyId: number;
+  companyName?: string;
+  department: string;
+  position?: string;
+  hireDate: string;
+  membershipPlan?: string;
+  emergencyContactName?: string;
+  emergencyContactPhone?: string;
+  profilePictureUrl?: string;
+  qrCodeUrl?: string;
+  status: EmployeeStatus;
   isActive: boolean;
-  profilePicture?: string;
-  notes?: string;
   createdAt: string;
   updatedAt: string;
 }
 
-export enum Gender {
-  MALE = 'MALE',
-  FEMALE = 'FEMALE',
-  OTHER = 'OTHER',
-}
-
-export enum ContractType {
-  FULL_TIME = 'FULL_TIME',
-  PART_TIME = 'PART_TIME',
-  CONTRACT = 'CONTRACT',
-  INTERN = 'INTERN',
-}
-
-export enum EmploymentStatus {
+export enum EmployeeStatus {
   ACTIVE = 'ACTIVE',
-  ON_LEAVE = 'ON_LEAVE',
+  INACTIVE = 'INACTIVE',
   SUSPENDED = 'SUSPENDED',
-  TERMINATED = 'TERMINATED',
 }
 
 export interface CreateEmployeeRequest {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
-  phoneNumber: string;
-  nationalId: string;
-  employeeNumber: string;
-  department: string;
-  position: string;
-  dateOfBirth: string;
-  gender: Gender;
-  address: string;
-  emergencyContact: string;
-  emergencyPhone: string;
-  hireDate: string;
-  contractType: ContractType;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  address?: string;
   companyId: number;
-  profilePicture?: string;
-  notes?: string;
+  department: string;
+  position?: string;
+  hireDate: string;
+  membershipPlan?: string;
+  emergencyContactName?: string;
+  emergencyContactPhone?: string;
+  profilePictureUrl?: string;
 }
 
-export interface UpdateEmployeeRequest extends Partial<CreateEmployeeRequest> {
-  employmentStatus?: EmploymentStatus;
-  isActive?: boolean;
-}
-
-export interface EmployeeFilter {
-  search?: string;
+export interface UpdateEmployeeRequest {
+  fullName?: string;
+  email?: string;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  address?: string;
   department?: string;
   position?: string;
-  contractType?: ContractType;
-  employmentStatus?: EmploymentStatus;
+  hireDate?: string;
+  membershipPlan?: string;
+  emergencyContactName?: string;
+  emergencyContactPhone?: string;
+  profilePictureUrl?: string;
+  status?: EmployeeStatus;
+}
+
+export interface BulkUploadEmployeeRequest {
+  companyId: number;
+  employees: CreateEmployeeRequest[];
+}
+
+export interface EmployeeStats {
+  totalEmployees: number;
+  activeEmployees: number;
+  inactiveEmployees: number;
+  suspendedEmployees: number;
+  totalVisitsThisMonth: number;
+  averageVisitsPerEmployee: number;
+}
+
+export interface EmployeeFilters {
   companyId?: number;
-  isActive?: boolean;
+  department?: string;
+  status?: EmployeeStatus;
+  search?: string;
+  page?: number;
+  size?: number;
+  sortBy?: string;
+  sortDirection?: 'asc' | 'desc';
 }

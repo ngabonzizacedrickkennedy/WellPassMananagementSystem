@@ -2,12 +2,13 @@ export interface User {
   id: number;
   email: string;
   fullName: string;
-  phoneNumber: string;
   role: UserRole;
-  isEmailVerified: boolean;
+  companyId?: number;
+  companyName?: string;
+  serviceProviderId?: number;
+  serviceProviderName?: string;
   isActive: boolean;
   createdAt: string;
-  updatedAt: string;
 }
 
 export enum UserRole {
@@ -16,6 +17,7 @@ export enum UserRole {
   HR_MANAGER = 'HR_MANAGER',
   RECEPTIONIST = 'RECEPTIONIST',
   SERVICE_PROVIDER_ADMIN = 'SERVICE_PROVIDER_ADMIN',
+  EMPLOYEE = 'EMPLOYEE',
 }
 
 export interface LoginRequest {
@@ -23,32 +25,19 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface LoginResponse {
-  accessToken: string;
-  refreshToken: string;
-  user: User;
-}
-
 export interface RegisterRequest {
   email: string;
   password: string;
   fullName: string;
-  phoneNumber: string;
   role: UserRole;
+  companyId?: number;
+  serviceProviderId?: number;
 }
 
-export interface RegisterResponse {
-  message: string;
+export interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
   user: User;
-}
-
-export interface ForgotPasswordRequest {
-  email: string;
-}
-
-export interface ResetPasswordRequest {
-  token: string;
-  newPassword: string;
 }
 
 export interface ChangePasswordRequest {
@@ -56,10 +45,11 @@ export interface ChangePasswordRequest {
   newPassword: string;
 }
 
-export interface RefreshTokenRequest {
-  refreshToken: string;
+export interface ResetPasswordRequest {
+  email: string;
 }
 
-export interface RefreshTokenResponse {
-  accessToken: string;
+export interface ResetPasswordConfirm {
+  token: string;
+  newPassword: string;
 }

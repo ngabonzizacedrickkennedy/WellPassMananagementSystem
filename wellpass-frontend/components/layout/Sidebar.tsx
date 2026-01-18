@@ -38,7 +38,7 @@ const menuItems: MenuItem[] = [
     label: 'Employees',
     icon: Users,
     href: '/employees',
-    roles: ['SUPER_ADMIN', 'COMPANY_ADMIN', 'HR_MANAGER', 'RECEPTIONIST'],
+    roles: ['COMPANY_ADMIN', 'HR_MANAGER', 'RECEPTIONIST'],
   },
   {
     label: 'Attendance',

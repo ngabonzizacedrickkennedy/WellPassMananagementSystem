@@ -13,11 +13,12 @@ import toast from 'react-hot-toast';
 
 const SERVICE_TYPES = [
   { value: ServiceType.GYM, label: 'Gym' },
-  { value: ServiceType.PERSONAL_TRAINING, label: 'Swimming Pool' },
-  { value: ServiceType.SWIMMING, label: 'Yoga Studio' },
-  { value: ServiceType.WELLNESS, label: 'Spa' },
-  { value: ServiceType.YOGA, label: 'Sports Complex' },
-  { value: ServiceType.YOGA, label: 'Fitness Center' },
+  { value: ServiceType.YOGA, label: 'Yoga' },
+  { value: ServiceType.SWIMMING, label: 'Swimming' },
+  { value: ServiceType.PERSONAL_TRAINING, label: 'Personal Training' },
+  { value: ServiceType.FITNESS_CLASS, label: 'Fitness Class' },
+  { value: ServiceType.WELLNESS, label: 'Wellness' },
+  { value: ServiceType.OTHER, label: 'Other' },
 ];
 
 export default function Page() {
