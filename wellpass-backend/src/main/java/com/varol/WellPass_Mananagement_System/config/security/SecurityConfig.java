@@ -50,6 +50,8 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/password/**").permitAll()
+                        .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
 
@@ -66,6 +68,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/companies/**").hasAnyRole("COMPANY_ADMIN", "SUPER_ADMIN")
                         .requestMatchers("/api/service-providers/**").hasAnyRole("SERVICE_PROVIDER_ADMIN", "SUPER_ADMIN")
                         .requestMatchers("/api/billing/**").hasAnyRole("COMPANY_ADMIN", "SUPER_ADMIN")
+
 
                         .anyRequest().authenticated()
                 )
