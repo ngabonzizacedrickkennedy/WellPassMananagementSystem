@@ -17,11 +17,12 @@ export interface ServiceProvider {
 
 export enum ServiceType {
   GYM = 'GYM',
-  SWIMMING_POOL = 'SWIMMING_POOL',
-  YOGA_STUDIO = 'YOGA_STUDIO',
-  SPA = 'SPA',
-  SPORTS_COMPLEX = 'SPORTS_COMPLEX',
-  FITNESS_CENTER = 'FITNESS_CENTER',
+  YOGA = 'YOGA',
+  SWIMMING = 'SWIMMING',
+  PERSONAL_TRAINING = 'PERSONAL_TRAINING',
+  FITNESS_CLASS = 'FITNESS_CLASS',
+  WELLNESS = 'WELLNESS',
+  OTHER = 'OTHER',
 }
 
 export interface CreateServiceProviderRequest {

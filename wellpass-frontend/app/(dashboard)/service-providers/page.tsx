@@ -26,20 +26,22 @@ import toast from 'react-hot-toast';
 
 const SERVICE_TYPE_LABELS: Record<ServiceType, string> = {
   [ServiceType.GYM]: 'Gym',
-  [ServiceType.SWIMMING_POOL]: 'Swimming Pool',
-  [ServiceType.YOGA_STUDIO]: 'Yoga Studio',
-  [ServiceType.SPA]: 'Spa',
-  [ServiceType.SPORTS_COMPLEX]: 'Sports Complex',
-  [ServiceType.FITNESS_CENTER]: 'Fitness Center',
+  [ServiceType.YOGA]: 'Yoga',
+  [ServiceType.SWIMMING]: 'Swimming',
+  [ServiceType.PERSONAL_TRAINING]: 'Personal Training',
+  [ServiceType.FITNESS_CLASS]: 'Fitness Class',
+  [ServiceType.WELLNESS]: 'Wellness',
+  [ServiceType.OTHER]: 'Other',
 };
 
 const SERVICE_TYPE_COLORS: Record<ServiceType, { bg: string; text: string; icon: string }> = {
   [ServiceType.GYM]: { bg: 'bg-red-100', text: 'text-red-700', icon: 'bg-red-500' },
-  [ServiceType.SWIMMING_POOL]: { bg: 'bg-blue-100', text: 'text-blue-700', icon: 'bg-blue-500' },
-  [ServiceType.YOGA_STUDIO]: { bg: 'bg-purple-100', text: 'text-purple-700', icon: 'bg-purple-500' },
-  [ServiceType.SPA]: { bg: 'bg-pink-100', text: 'text-pink-700', icon: 'bg-pink-500' },
-  [ServiceType.SPORTS_COMPLEX]: { bg: 'bg-green-100', text: 'text-green-700', icon: 'bg-green-500' },
-  [ServiceType.FITNESS_CENTER]: { bg: 'bg-orange-100', text: 'text-orange-700', icon: 'bg-orange-500' },
+  [ServiceType.YOGA]: { bg: 'bg-purple-100', text: 'text-purple-700', icon: 'bg-purple-500' },
+  [ServiceType.SWIMMING]: { bg: 'bg-blue-100', text: 'text-blue-700', icon: 'bg-blue-500' },
+  [ServiceType.PERSONAL_TRAINING]: { bg: 'bg-orange-100', text: 'text-orange-700', icon: 'bg-orange-500' },
+  [ServiceType.FITNESS_CLASS]: { bg: 'bg-green-100', text: 'text-green-700', icon: 'bg-green-500' },
+  [ServiceType.WELLNESS]: { bg: 'bg-pink-100', text: 'text-pink-700', icon: 'bg-pink-500' },
+  [ServiceType.OTHER]: { bg: 'bg-gray-100', text: 'text-gray-700', icon: 'bg-gray-500' },
 };
 
 export default function ServiceProvidersPage() {
