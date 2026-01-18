@@ -1,6 +1,7 @@
 package com.varol.WellPass_Mananagement_System.implementation.organization;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,16 +23,29 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     @Transactional
     public Company createCompany(Company company) {
-        if (companyRepository.existsByCompanyCode(company.getCompanyCode())) {
-            throw new DuplicateResourceException("Company code already exists: " + company.getCompanyCode());
-        }
-
         if (companyRepository.existsByCompanyName(company.getCompanyName())) {
             throw new DuplicateResourceException("Company name already exists: " + company.getCompanyName());
         }
 
+        String companyCode = generateCompanyCode(company.getCompanyName());
+        company.setCompanyCode(companyCode);
         company.setIsActive(true);
+
         return companyRepository.save(company);
+    }
+
+    private String generateCompanyCode(String companyName) {
+        String prefix = companyName.replaceAll("[^A-Za-z0-9]", "")
+                .toUpperCase()
+                .substring(0, Math.min(3, companyName.length()));
+
+        String uniqueCode;
+        do {
+            String randomPart = UUID.randomUUID().toString().substring(0, 5).toUpperCase();
+            uniqueCode = prefix + "-" + randomPart;
+        } while (companyRepository.existsByCompanyCode(uniqueCode));
+
+        return uniqueCode;
     }
 
     @Override
