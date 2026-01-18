@@ -1,66 +1,43 @@
 export interface Company {
   id: number;
-  name: string;
-  registrationNumber: string;
-  taxId: string;
-  industry: string;
-  address: string;
-  city: string;
-  country: string;
-  phoneNumber: string;
-  email: string;
-  website?: string;
-  logo?: string;
-  subscriptionPlan: SubscriptionPlan;
-  subscriptionStatus: SubscriptionStatus;
-  subscriptionStartDate: string;
-  subscriptionEndDate?: string;
-  maxEmployees: number;
-  currentEmployees: number;
+  companyName: string;
+  companyCode: string;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  logoUrl?: string;
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
-}
-
-export enum SubscriptionPlan {
-  BASIC = 'BASIC',
-  STANDARD = 'STANDARD',
-  PREMIUM = 'PREMIUM',
-  ENTERPRISE = 'ENTERPRISE',
-}
-
-export enum SubscriptionStatus {
-  ACTIVE = 'ACTIVE',
-  TRIAL = 'TRIAL',
-  EXPIRED = 'EXPIRED',
-  SUSPENDED = 'SUSPENDED',
-  CANCELLED = 'CANCELLED',
+  employeeCount?: number;
 }
 
 export interface CreateCompanyRequest {
-  name: string;
-  registrationNumber: string;
-  taxId: string;
-  industry: string;
-  address: string;
-  city: string;
-  country: string;
-  phoneNumber: string;
-  email: string;
-  website?: string;
-  logo?: string;
-  subscriptionPlan: SubscriptionPlan;
-  maxEmployees: number;
+  companyName: string;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  logoUrl?: string;
 }
 
-export interface UpdateCompanyRequest extends Partial<CreateCompanyRequest> {
-  subscriptionStatus?: SubscriptionStatus;
-  isActive?: boolean;
+export interface UpdateCompanyRequest {
+  companyName?: string;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  logoUrl?: string;
 }
 
 export interface CompanyStats {
+  totalCompanies: number;
+  activeCompanies: number;
+  inactiveCompanies: number;
   totalEmployees: number;
-  activeEmployees: number;
-  subscriptionDaysRemaining: number;
-  utilizationPercentage: number;
+}
+
+export interface CompanyFilters {
+  search?: string;
+  isActive?: boolean;
+  page?: number;
+  size?: number;
 }

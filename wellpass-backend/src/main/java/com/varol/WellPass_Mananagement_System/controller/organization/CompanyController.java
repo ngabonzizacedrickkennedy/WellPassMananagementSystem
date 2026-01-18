@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestParam;
+import com.varol.WellPass_Mananagement_System.dtos.response.common.PageResponse;
+import com.varol.WellPass_Mananagement_System.repository.organization.CompanyRepository;
 
 import com.varol.WellPass_Mananagement_System.dtos.response.common.ApiResponse;
 import com.varol.WellPass_Mananagement_System.model.organization.Company;
@@ -24,6 +30,31 @@ import lombok.RequiredArgsConstructor;
 public class CompanyController {
 
     private final CompanyService companyService;
+    private final CompanyRepository companyRepository;
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'COMPANY_ADMIN')")
+    public ResponseEntity<ApiResponse<PageResponse<Company>>> getAllCompanies(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "10") Integer size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Company> companyPage = companyRepository.findAll(pageable);
+
+        PageResponse<Company> response = new PageResponse<>(
+                companyPage.getContent(),
+                companyPage.getNumber(),
+                companyPage.getSize(),
+                companyPage.getTotalElements(),
+                companyPage.getTotalPages(),
+                companyPage.isFirst(),
+                companyPage.isLast(),
+                companyPage.hasNext(),
+                companyPage.hasPrevious()
+        );
+
+        return ResponseEntity.ok(ApiResponse.success(response));
+    }
 
     @PostMapping
     @PreAuthorize("hasRole('SUPER_ADMIN')")
