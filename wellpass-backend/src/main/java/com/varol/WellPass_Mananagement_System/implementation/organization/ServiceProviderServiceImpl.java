@@ -1,6 +1,7 @@
 package com.varol.WellPass_Mananagement_System.implementation.organization;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,12 +23,29 @@ public class ServiceProviderServiceImpl implements ServiceProviderService {
     @Override
     @Transactional
     public ServiceProvider createServiceProvider(ServiceProvider serviceProvider) {
-        if (serviceProviderRepository.existsByProviderCode(serviceProvider.getProviderCode())) {
-            throw new DuplicateResourceException("Provider code already exists: " + serviceProvider.getProviderCode());
+        if (serviceProviderRepository.existsByProviderName(serviceProvider.getProviderName())) {
+            throw new DuplicateResourceException("Provider name already exists: " + serviceProvider.getProviderName());
         }
 
+        String providerCode = generateProviderCode(serviceProvider.getProviderName());
+        serviceProvider.setProviderCode(providerCode);
         serviceProvider.setIsActive(true);
+
         return serviceProviderRepository.save(serviceProvider);
+    }
+
+    private String generateProviderCode(String providerName) {
+        String prefix = providerName.replaceAll("[^A-Za-z0-9]", "")
+                .toUpperCase()
+                .substring(0, Math.min(3, providerName.length()));
+
+        String uniqueCode;
+        do {
+            String randomPart = UUID.randomUUID().toString().substring(0, 5).toUpperCase();
+            uniqueCode = prefix + "-" + randomPart;
+        } while (serviceProviderRepository.existsByProviderCode(uniqueCode));
+
+        return uniqueCode;
     }
 
     @Override
@@ -37,6 +55,9 @@ public class ServiceProviderServiceImpl implements ServiceProviderService {
 
         if (serviceProvider.getProviderName() != null) {
             existing.setProviderName(serviceProvider.getProviderName());
+        }
+        if (serviceProvider.getServiceType() != null) {
+            existing.setServiceType(serviceProvider.getServiceType());
         }
         if (serviceProvider.getAddress() != null) {
             existing.setAddress(serviceProvider.getAddress());
@@ -49,6 +70,18 @@ public class ServiceProviderServiceImpl implements ServiceProviderService {
         }
         if (serviceProvider.getLogoUrl() != null) {
             existing.setLogoUrl(serviceProvider.getLogoUrl());
+        }
+        if (serviceProvider.getOperatingHours() != null) {
+            existing.setOperatingHours(serviceProvider.getOperatingHours());
+        }
+        if (serviceProvider.getCapacity() != null) {
+            existing.setCapacity(serviceProvider.getCapacity());
+        }
+        if (serviceProvider.getPricePerVisit() != null) {
+            existing.setPricePerVisit(serviceProvider.getPricePerVisit());
+        }
+        if (serviceProvider.getDescription() != null) {
+            existing.setDescription(serviceProvider.getDescription());
         }
         if (serviceProvider.getBranchLocation() != null) {
             existing.setBranchLocation(serviceProvider.getBranchLocation());
@@ -93,6 +126,13 @@ public class ServiceProviderServiceImpl implements ServiceProviderService {
         ServiceProvider provider = getServiceProviderById(providerId);
         provider.setIsActive(true);
         serviceProviderRepository.save(provider);
+    }
+
+    @Override
+    @Transactional
+    public void deleteServiceProvider(Long providerId) {
+        ServiceProvider provider = getServiceProviderById(providerId);
+        serviceProviderRepository.delete(provider);
     }
 
     @Override

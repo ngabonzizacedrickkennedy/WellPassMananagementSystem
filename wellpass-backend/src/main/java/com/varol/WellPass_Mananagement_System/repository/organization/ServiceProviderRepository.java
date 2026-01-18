@@ -20,6 +20,8 @@ public interface ServiceProviderRepository extends JpaRepository<ServiceProvider
     List<ServiceProvider> findByIsActive(Boolean isActive);
 
     List<ServiceProvider> findByBranchLocation(String branchLocation);
+
+
 }
 
 

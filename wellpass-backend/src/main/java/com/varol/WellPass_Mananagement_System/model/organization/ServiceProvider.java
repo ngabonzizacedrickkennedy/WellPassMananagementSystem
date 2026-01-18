@@ -9,6 +9,8 @@ import com.varol.WellPass_Mananagement_System.model.user.Receptionist;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,6 +32,10 @@ public class ServiceProvider extends AuditableEntity {
     @Column(name = "provider_code", nullable = false, unique = true)
     private String providerCode;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "service_type")
+    private ServiceType serviceType;
+
     @Column(name = "address")
     private String address;
 
@@ -41,6 +47,18 @@ public class ServiceProvider extends AuditableEntity {
 
     @Column(name = "logo_url")
     private String logoUrl;
+
+    @Column(name = "operating_hours")
+    private String operatingHours;
+
+    @Column(name = "capacity")
+    private Integer capacity;
+
+    @Column(name = "price_per_visit")
+    private Double pricePerVisit;
+
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
     @Column(name = "branch_location")
     private String branchLocation;
@@ -54,9 +72,3 @@ public class ServiceProvider extends AuditableEntity {
     @OneToMany(mappedBy = "serviceProvider", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receptionist> receptionists = new ArrayList<>();
 }
-
-
-
-
-
-
